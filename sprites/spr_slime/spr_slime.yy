@@ -24,15 +24,15 @@
   "gridX": 0,
   "gridY": 0,
   "frames": [
-    {"compositeImage":{"FrameId":{"name":"dd8dc2f4-2798-40e6-bf93-c3b35ba1032b","path":"sprites/bkg_test/bkg_test.yy",},"LayerId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},"images":[
-        {"FrameId":{"name":"dd8dc2f4-2798-40e6-bf93-c3b35ba1032b","path":"sprites/bkg_test/bkg_test.yy",},"LayerId":{"name":"d88897e4-5204-4d75-806b-4fbdfca902e8","path":"sprites/bkg_test/bkg_test.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
-      ],"parent":{"name":"bkg_test","path":"sprites/bkg_test/bkg_test.yy",},"resourceVersion":"1.0","name":"dd8dc2f4-2798-40e6-bf93-c3b35ba1032b","tags":[],"resourceType":"GMSpriteFrame",},
+    {"compositeImage":{"FrameId":{"name":"e94e1631-e3a1-489c-b136-e179e875717d","path":"sprites/spr_slime/spr_slime.yy",},"LayerId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},"images":[
+        {"FrameId":{"name":"e94e1631-e3a1-489c-b136-e179e875717d","path":"sprites/spr_slime/spr_slime.yy",},"LayerId":{"name":"a2a55a9e-72c9-4c16-8b9b-97e373fd95e1","path":"sprites/spr_slime/spr_slime.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
+      ],"parent":{"name":"spr_slime","path":"sprites/spr_slime/spr_slime.yy",},"resourceVersion":"1.0","name":"e94e1631-e3a1-489c-b136-e179e875717d","tags":[],"resourceType":"GMSpriteFrame",},
   ],
   "sequence": {
-    "spriteId": {"name":"bkg_test","path":"sprites/bkg_test/bkg_test.yy",},
+    "spriteId": {"name":"spr_slime","path":"sprites/spr_slime/spr_slime.yy",},
     "timeUnits": 1,
     "playback": 1,
-    "playbackSpeed": 10.0,
+    "playbackSpeed": 30.0,
     "playbackSpeedType": 0,
     "autoRecord": true,
     "volume": 1.0,
@@ -41,7 +41,7 @@
     "moments": {"Keyframes":[],"resourceVersion":"1.0","resourceType":"KeyframeStore<MomentsEventKeyframe>",},
     "tracks": [
       {"name":"frames","spriteId":null,"keyframes":{"Keyframes":[
-            {"id":"74cae06f-197c-4884-a629-a0e192e7618d","Key":0.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"dd8dc2f4-2798-40e6-bf93-c3b35ba1032b","path":"sprites/bkg_test/bkg_test.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
+            {"id":"e875f8cb-6c50-4c72-8363-dcec34191cca","Key":0.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"e94e1631-e3a1-489c-b136-e179e875717d","path":"sprites/spr_slime/spr_slime.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
           ],"resourceVersion":"1.0","resourceType":"KeyframeStore<SpriteFrameKeyframe>",},"trackColour":0,"inheritsTrackColour":true,"builtinName":0,"traits":0,"interpolation":1,"tracks":[],"events":[],"modifiers":[],"isCreationTrack":false,"resourceVersion":"1.0","tags":[],"resourceType":"GMSpriteFramesTrack",},
     ],
     "visibleRange": null,
@@ -58,21 +58,21 @@
     "yorigin": 8,
     "eventToFunction": {},
     "eventStubScript": null,
-    "parent": {"name":"bkg_test","path":"sprites/bkg_test/bkg_test.yy",},
+    "parent": {"name":"spr_slime","path":"sprites/spr_slime/spr_slime.yy",},
     "resourceVersion": "1.3",
-    "name": "bkg_test",
+    "name": "spr_slime",
     "tags": [],
     "resourceType": "GMSequence",
   },
   "layers": [
-    {"visible":true,"isLocked":false,"blendMode":0,"opacity":100.0,"displayName":"default","resourceVersion":"1.0","name":"d88897e4-5204-4d75-806b-4fbdfca902e8","tags":[],"resourceType":"GMImageLayer",},
+    {"visible":true,"isLocked":false,"blendMode":0,"opacity":100.0,"displayName":"default","resourceVersion":"1.0","name":"a2a55a9e-72c9-4c16-8b9b-97e373fd95e1","tags":[],"resourceType":"GMImageLayer",},
   ],
   "parent": {
-    "name": "Backgrounds",
-    "path": "folders/Backgrounds.yy",
+    "name": "Enemies",
+    "path": "folders/Enemies.yy",
   },
   "resourceVersion": "1.0",
-  "name": "bkg_test",
+  "name": "spr_slime",
   "tags": [],
   "resourceType": "GMSprite",
 }
