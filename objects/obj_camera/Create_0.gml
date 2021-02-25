@@ -79,14 +79,14 @@ function follow(_inst, _factor, _xoff, _yoff)
 	
 	#region X-Movement
 	var xdis = targetx - xpos;
-	if (xdis > minimum) {	xpos += ceil_decimal(xdis / _factor, 0.25); }
-	else if (xdis < -minimum)	{ xpos += floor_decimal(xdis / _factor, 0.25);	}
+	if (xdis > minimum) {	xpos += ceil_divd(xdis / _factor, 4); }
+	else if (xdis < -minimum)	{ xpos += floor_divd(xdis / _factor, 4);	}
 	else { xpos = targetx; }
 	#endregion
 	#region Y-Movement
 	var ydis = targety - ypos;
-	if (ydis > minimum)	{	ypos += ceil_decimal(ydis / _factor, 0.25); }
-	else if (ydis < -minimum)	{	ypos += floor_decimal(ydis / _factor, 0.25);	}
+	if (ydis > minimum)	{	ypos += ceil_divd(ydis / _factor, 4); }
+	else if (ydis < -minimum)	{	ypos += floor_divd(ydis / _factor, 4);	}
 	else { ypos = targety; }
 	#endregion
 	

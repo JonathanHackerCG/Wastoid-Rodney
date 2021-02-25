@@ -7,20 +7,9 @@ enum input
 	//It is recommended to remove any input IDs which are not being used.
 	
 	//Default user-defined buttons.
-	A,			//Face 1
-	B,			//Face 2
-	X,			//Face 3
-	Y,			//Face 4
 	SL,			//Left Shoulder Button
-	SLB,		//Left Shoulder Trigger
 	SR,			//Right Shoulder Button
-	SRB,		//Right Shoulder Trigger
-	select,	//Select Button
 	start,	//Start Button
-	U,			//D-Pad UP
-	D,			//D-Pad DOWN
-	L,			//D-Pad LEFT
-	R,			//D-Pad RIGHT
 	
 	//Default user-defined axes.
 	axis_lx,	//Left Joystick X-Axis
@@ -314,7 +303,7 @@ function InputController() constructor
 	static axis_value = function(_input)
 	{
 		var axis = _input_data[_input];
-		if (check._type == "axis") { return axis._value; }
+		if (axis._type == "axis") { return axis._value; }
 		else { show_error("Error with axis_value. Input is not an axis.", false); }
 	}
 	#endregion
@@ -325,7 +314,7 @@ function InputController() constructor
 	static axis_time = function(_input)
 	{
 		var axis = _input_data[_input];
-		if (check._type == "axis") { return axis._time; }
+		if (axis._type == "axis") { return axis._time; }
 		else { show_error("Error with axis_time. Input is not an axis.", false); }
 	}
 	#endregion

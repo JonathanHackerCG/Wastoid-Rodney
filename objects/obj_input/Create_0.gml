@@ -12,5 +12,5 @@ global.input.define_axis("Axis-LY", input.axis_ly, ord("S"), ord("W"), gp_axislv
 global.input.define_axis("Axis-RX", input.axis_rx, vk_right, vk_left, gp_axisrh);
 global.input.define_axis("Axis-RY", input.axis_ry, vk_down, vk_up, gp_axisrv);
 
-var gp = control.gamepad_find();
+var gp = global.input.gamepad_find();
 gamepad_set_axis_deadzone(gp, 0.1);

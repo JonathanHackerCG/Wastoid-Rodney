@@ -1,6 +1,7 @@
 {
   "resources": [
     {"id":{"name":"obj_dialogue_default","path":"objects/obj_dialogue_default/obj_dialogue_default.yy",},"order":6,},
+    {"id":{"name":"scr_movement","path":"scripts/scr_movement/scr_movement.yy",},"order":2,},
     {"id":{"name":"bkg_test","path":"sprites/bkg_test/bkg_test.yy",},"order":0,},
     {"id":{"name":"obj_input_controller","path":"objects/obj_input_controller/obj_input_controller.yy",},"order":1,},
     {"id":{"name":"spr_dialogue_answer","path":"sprites/spr_dialogue_answer/spr_dialogue_answer.yy",},"order":0,},
@@ -12,6 +13,7 @@
     {"id":{"name":"scribble_page_on_last","path":"scripts/scribble_page_on_last/scribble_page_on_last.yy",},"order":2,},
     {"id":{"name":"scribble_add_autotype_character_delay","path":"scripts/scribble_add_autotype_character_delay/scribble_add_autotype_character_delay.yy",},"order":0,},
     {"id":{"name":"scribble_autotype_set_sound","path":"scripts/scribble_autotype_set_sound/scribble_autotype_set_sound.yy",},"order":6,},
+    {"id":{"name":"obj_wall","path":"objects/obj_wall/obj_wall.yy",},"order":20,},
     {"id":{"name":"scribble_autotype_is_paused","path":"scripts/scribble_autotype_is_paused/scribble_autotype_is_paused.yy",},"order":4,},
     {"id":{"name":"scribble_page_count","path":"scripts/scribble_page_count/scribble_page_count.yy",},"order":0,},
     {"id":{"name":"obj_input","path":"objects/obj_input/obj_input.yy",},"order":2,},
@@ -21,6 +23,7 @@
     {"id":{"name":"obj_player","path":"objects/obj_player/obj_player.yy",},"order":0,},
     {"id":{"name":"scribble_get_height","path":"scripts/scribble_get_height/scribble_get_height.yy",},"order":12,},
     {"id":{"name":"cg_random","path":"scripts/cg_random/cg_random.yy",},"order":0,},
+    {"id":{"name":"spr_wall","path":"sprites/spr_wall/spr_wall.yy",},"order":21,},
     {"id":{"name":"scribble_init","path":"scripts/scribble_init/scribble_init.yy",},"order":4,},
     {"id":{"name":"scribble_flush","path":"scripts/scribble_flush/scribble_flush.yy",},"order":5,},
     {"id":{"name":"scribble_set_transform","path":"scripts/scribble_set_transform/scribble_set_transform.yy",},"order":10,},
@@ -55,6 +58,7 @@
     {"id":{"name":"scribble_autotype_function","path":"scripts/scribble_autotype_function/scribble_autotype_function.yy",},"order":2,},
     {"id":{"name":"scribble_page_set","path":"scripts/scribble_page_set/scribble_page_set.yy",},"order":3,},
     {"id":{"name":"scribble_get_bbox","path":"scripts/scribble_get_bbox/scribble_get_bbox.yy",},"order":11,},
+    {"id":{"name":"object_avoid_clutter","path":"scripts/object_avoid_clutter/object_avoid_clutter.yy",},"order":0,},
     {"id":{"name":"scribble_set_state","path":"scripts/scribble_set_state/scribble_set_state.yy",},"order":9,},
     {"id":{"name":"scribble_reset","path":"scripts/scribble_reset/scribble_reset.yy",},"order":14,},
     {"id":{"name":"scribble_autotype_get","path":"scripts/scribble_autotype_get/scribble_autotype_get.yy",},"order":3,},
@@ -110,6 +114,8 @@
     {"folderPath":"folders/Control.yy","order":16,"resourceVersion":"1.0","name":"Control","tags":[],"resourceType":"GMFolder",},
     {"folderPath":"folders/Parents.yy","order":17,"resourceVersion":"1.0","name":"Parents","tags":[],"resourceType":"GMFolder",},
     {"folderPath":"folders/Backgrounds.yy","order":18,"resourceVersion":"1.0","name":"Backgrounds","tags":[],"resourceType":"GMFolder",},
+    {"folderPath":"folders/Functions.yy","order":19,"resourceVersion":"1.0","name":"Functions","tags":[],"resourceType":"GMFolder",},
+    {"folderPath":"folders/Functions/Movement.yy","order":1,"resourceVersion":"1.0","name":"Movement","tags":[],"resourceType":"GMFolder",},
   ],
   "AudioGroups": [
     {"targets":-1,"resourceVersion":"1.3","name":"audiogroup_default","resourceType":"GMAudioGroup",},

@@ -1,7 +1,7 @@
 {
   "spriteId": null,
   "solid": false,
-  "visible": true,
+  "visible": false,
   "spriteMaskId": null,
   "persistent": true,
   "parentObjectId": null,
