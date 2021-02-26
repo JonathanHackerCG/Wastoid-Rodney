@@ -10,4 +10,4 @@ fire_goto = fire_angle;
 //Aim assist values.
 aim_off = 20;
 aim_target_off = 10;
-aim_speed = 0.25;
+aim_speed = 0.50;
