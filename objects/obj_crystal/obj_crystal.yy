@@ -1,7 +1,7 @@
 {
   "spriteId": {
-    "name": "spr_wall",
-    "path": "sprites/spr_wall/spr_wall.yy",
+    "name": "spr_crystal",
+    "path": "sprites/spr_crystal/spr_crystal.yy",
   },
   "solid": true,
   "visible": false,
@@ -23,17 +23,15 @@
   "physicsStartAwake": true,
   "physicsKinematic": false,
   "physicsShapePoints": [],
-  "eventList": [
-    {"isDnD":false,"eventNum":0,"eventType":0,"collisionObjectId":null,"parent":{"name":"obj_wall","path":"objects/obj_wall/obj_wall.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMEvent",},
-  ],
+  "eventList": [],
   "properties": [],
   "overriddenProperties": [],
   "parent": {
-    "name": "Kung Party",
-    "path": "Kung Party.yyp",
+    "name": "Clutter",
+    "path": "folders/Level Building/Clutter.yy",
   },
   "resourceVersion": "1.0",
-  "name": "obj_wall",
+  "name": "obj_crystal",
   "tags": [],
   "resourceType": "GMObject",
 }

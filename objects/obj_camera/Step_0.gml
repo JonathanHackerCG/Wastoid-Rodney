@@ -1,3 +1,3 @@
 /// @description Follow the player.
 event_inherited();
-follow(player, 32);
+follow(player, 16);

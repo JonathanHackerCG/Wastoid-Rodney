@@ -7,4 +7,4 @@ camera.init();
 camera.init_screen(256, 320, 180, 192, 4, global.fullscreen);
 #endregion
 
-room_goto(rm_levelA);
+start_level(rm_levelA);

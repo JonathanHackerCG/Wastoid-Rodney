@@ -20,7 +20,7 @@ with (par_enemy)
 {
 	var enemy_dir = point_direction(player.x, player.y, x, y);
 	var enemy_dis = point_distance(player.x, player.y, x, y);
-	if ((dis_min == undefined || enemy_dis < dis_min) && enemy_dis <= range - 4)
+	if ((dis_min == undefined || enemy_dis < dis_min) && enemy_dis <= range - 4 && collision_line(player.x, player.y, x, y, obj_wall, false, true) == noone)
 	{
 		if (abs(angle_difference(player.fire_goto, enemy_dir)) <= player.aim_off + (targeted * player.aim_target_off))
 		{
@@ -34,11 +34,8 @@ with (par_enemy)
 fire_angle = alerp(fire_angle, fire_goto, aim_speed);
 #endregion
 #region Shooting.
-if (abs(audio.off_beat) <= 50 && (global.input.check_pressed(input.SR)))
+if (global.input.check_held(input.SR) && game_tick % 15 == 0)
 {
-	var inst = bullet(obj_bullet_player, fire_angle, 4);
-	
-	if (abs(audio.off_beat) <= 30) { inst.image_index = 1; }
-	if (abs(audio.off_beat) <= 15) { inst.image_index = 2; }
+	bullet(obj_bullet_player, fire_angle, 4);
 }
 #endregion
