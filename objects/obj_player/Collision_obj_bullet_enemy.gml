@@ -1,6 +1,7 @@
 /// @description Take damage from enemy bullets.
 event_inherited();
 
+camera.screenshake += 12;
 damage(other.var_damage);
 instance_destroy(other);
 

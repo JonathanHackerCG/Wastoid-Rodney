@@ -1,6 +1,7 @@
 /// @description Player movement.
 event_inherited();
 
+_depth = -bbox_bottom;
 #region Movement.
 spd_max = 1.5;
 if (speedy) { spd_max = 2.0; }
@@ -15,6 +16,22 @@ spd_goto = clamp(spd_goto * spd_max, -spd_max, spd_max);
 spd = lerp(spd, spd_goto, accel);
 
 step_direction_solid(var_direction, spd);
+
+if (spd > 0) { sprite_index = spr_player_walk; }
+else { sprite_index = spr_player; }
+#endregion
+#region Dashing.
+if (global.input.check_pressed(input.SL))
+{
+	var dis = 48;
+	var xx = x + lengthdir_x(dis, dir);
+	var yy = y + lengthdir_y(dis, dir);
+	repeat(8)
+	{
+		part_fade(x, y, layer, sprite_index, 0, 5);
+		step_towards_point_solid(xx, yy, dis / 8)
+	}
+}
 #endregion
 #region Aiming.
 var axis_x = global.input.axis_value(input.axis_rx);
@@ -51,8 +68,8 @@ if (global.input.check_held(input.SR) && game_tick % fire_rate == 0)
 	if (tripleshot)
 	{
 		var off = 15;
-		bullet(obj_bullet_player, fire_angle + off, 4);
-		bullet(obj_bullet_player, fire_angle - off, 4);
+		bullet(obj_bullet_player, fire_angle + off, 3);
+		bullet(obj_bullet_player, fire_angle - off, 3);
 	}
 }
 #endregion

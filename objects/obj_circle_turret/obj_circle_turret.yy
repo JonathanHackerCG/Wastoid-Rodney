@@ -1,7 +1,7 @@
 {
   "spriteId": {
-    "name": "spr_slime",
-    "path": "sprites/spr_slime/spr_slime.yy",
+    "name": "spr_circle_turret",
+    "path": "sprites/spr_circle_turret/spr_circle_turret.yy",
   },
   "solid": false,
   "visible": false,
@@ -26,12 +26,13 @@
   "eventList": [
     {"isDnD":false,"eventNum":0,"eventType":3,"collisionObjectId":null,"parent":{"name":"obj_circle_turret","path":"objects/obj_circle_turret/obj_circle_turret.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMEvent",},
     {"isDnD":false,"eventNum":0,"eventType":0,"collisionObjectId":null,"parent":{"name":"obj_circle_turret","path":"objects/obj_circle_turret/obj_circle_turret.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMEvent",},
+    {"isDnD":false,"eventNum":0,"eventType":1,"collisionObjectId":null,"parent":{"name":"obj_circle_turret","path":"objects/obj_circle_turret/obj_circle_turret.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMEvent",},
   ],
   "properties": [],
   "overriddenProperties": [],
   "parent": {
     "name": "Enemies",
-    "path": "folders/Enemies.yy",
+    "path": "folders/Primary/Enemies.yy",
   },
   "resourceVersion": "1.0",
   "name": "obj_circle_turret",

@@ -50,7 +50,7 @@ function update()
 	xpos = clamp(xpos, 0, room_width - width);
 	ypos = clamp(ypos, 0, room_height - height);
 	
-	camera_set_view_pos(cam_id, xpos, ypos);
+	camera_set_view_pos(cam_id, xpos + irandom_off(screenshake), ypos + irandom_off(screenshake));
 	xcenter = xpos + wcenter;
 	ycenter = ypos + hcenter;
 }
@@ -202,6 +202,10 @@ function init_screen(width_min, width_max, height_min, height_max, scale_base, f
 	update();
 }
 #endregion
+
+screenshake = 0;
+screenshake_max = 16;
+flash_alpha = 0.00;
 
 #region Main draw variable initialization.
 depthgrid = ds_grid_create(2, 1);

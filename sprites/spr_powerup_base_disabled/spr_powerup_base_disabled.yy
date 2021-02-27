@@ -149,7 +149,7 @@
   "nineSlice": null,
   "parent": {
     "name": "Sprites",
-    "path": "folders/Level Building/Powerups/Sprites.yy",
+    "path": "folders/Primary/Powerups/Sprites.yy",
   },
   "resourceVersion": "1.0",
   "name": "spr_powerup_base_disabled",

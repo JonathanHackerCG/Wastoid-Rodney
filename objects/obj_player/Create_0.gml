@@ -14,8 +14,8 @@ fire_angle = 90;
 fire_goto = fire_angle;
 
 //Aim assist values.
-aim_off = 20;
-aim_target_off = 10;
+aim_off = 10;
+aim_target_off = 5;
 aim_speed = 0.50;
 
 //Powerup variables.

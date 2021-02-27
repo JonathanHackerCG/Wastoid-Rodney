@@ -172,8 +172,8 @@
     "resourceType": "GMNineSliceData",
   },
   "parent": {
-    "name": "Kung Party",
-    "path": "Kung Party.yyp",
+    "name": "Primary",
+    "path": "folders/Primary.yy",
   },
   "resourceVersion": "1.0",
   "name": "spr_wall",

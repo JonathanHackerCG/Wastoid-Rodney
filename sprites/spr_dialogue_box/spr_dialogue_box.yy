@@ -70,7 +70,7 @@
   "nineSlice": null,
   "parent": {
     "name": "Dialogue Box Sprites",
-    "path": "folders/CG_Modules/CG_Dialogue/Dialogue Box Sprites.yy",
+    "path": "folders/Functions/CG_Modules/CG_Dialogue/Dialogue Box Sprites.yy",
   },
   "resourceVersion": "1.0",
   "name": "spr_dialogue_box",

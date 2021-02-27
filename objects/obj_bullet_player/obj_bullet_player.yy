@@ -31,7 +31,7 @@
   "overriddenProperties": [],
   "parent": {
     "name": "Player",
-    "path": "folders/Bullets/Player.yy",
+    "path": "folders/Primary/Bullets/Player.yy",
   },
   "resourceVersion": "1.0",
   "name": "obj_bullet_player",

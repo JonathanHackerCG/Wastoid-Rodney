@@ -200,7 +200,7 @@
   "maintainGms1Font": false,
   "parent": {
     "name": "Dialogue Fonts",
-    "path": "folders/CG_Modules/CG_Dialogue/Dialogue Fonts.yy",
+    "path": "folders/Functions/CG_Modules/CG_Dialogue/Dialogue Fonts.yy",
   },
   "resourceVersion": "1.0",
   "name": "fnt_cg_dialogue",

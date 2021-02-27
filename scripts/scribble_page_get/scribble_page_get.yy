@@ -3,7 +3,7 @@
   "isCompatibility": false,
   "parent": {
     "name": "Pages",
-    "path": "folders/Scribble/Pages.yy",
+    "path": "folders/Functions/Scribble/Pages.yy",
   },
   "resourceVersion": "1.0",
   "name": "scribble_page_get",

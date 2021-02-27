@@ -69,8 +69,8 @@
   ],
   "nineSlice": null,
   "parent": {
-    "name": "Player",
-    "path": "folders/Bullets/Player.yy",
+    "name": "Sprites",
+    "path": "folders/Primary/Bullets/Player/Sprites.yy",
   },
   "resourceVersion": "1.0",
   "name": "spr_bullet_break_mask",

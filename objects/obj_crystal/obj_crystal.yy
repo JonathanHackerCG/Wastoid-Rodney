@@ -23,12 +23,15 @@
   "physicsStartAwake": true,
   "physicsKinematic": false,
   "physicsShapePoints": [],
-  "eventList": [],
+  "eventList": [
+    {"isDnD":false,"eventNum":0,"eventType":0,"collisionObjectId":null,"parent":{"name":"obj_crystal","path":"objects/obj_crystal/obj_crystal.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMEvent",},
+    {"isDnD":false,"eventNum":0,"eventType":1,"collisionObjectId":null,"parent":{"name":"obj_crystal","path":"objects/obj_crystal/obj_crystal.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMEvent",},
+  ],
   "properties": [],
   "overriddenProperties": [],
   "parent": {
     "name": "Clutter",
-    "path": "folders/Level Building/Clutter.yy",
+    "path": "folders/Primary/Clutter.yy",
   },
   "resourceVersion": "1.0",
   "name": "obj_crystal",

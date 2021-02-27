@@ -173,7 +173,7 @@
   },
   "parent": {
     "name": "Sprites",
-    "path": "folders/Level Building/Interaction/Sprites.yy",
+    "path": "folders/Primary/Interaction/Sprites.yy",
   },
   "resourceVersion": "1.0",
   "name": "spr_lock",

@@ -1,5 +1,4 @@
 {
-  "name": "tst_levelA",
   "spriteId": {
     "name": "spr_levelA",
     "path": "sprites/spr_levelA/spr_levelA.yy",
@@ -46,6 +45,7 @@
     "path": "folders/Backgrounds.yy",
   },
   "resourceVersion": "1.0",
+  "name": "tst_levelA",
   "tags": [],
   "resourceType": "GMTileSet",
 }

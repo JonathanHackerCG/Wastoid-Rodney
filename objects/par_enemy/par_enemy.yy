@@ -29,7 +29,7 @@
   "overriddenProperties": [],
   "parent": {
     "name": "Parents",
-    "path": "folders/Parents.yy",
+    "path": "folders/Control/Parents.yy",
   },
   "resourceVersion": "1.0",
   "name": "par_enemy",

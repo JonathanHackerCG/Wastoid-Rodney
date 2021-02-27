@@ -25,7 +25,7 @@
   "overriddenProperties": [],
   "parent": {
     "name": "Logical Objects",
-    "path": "folders/Level Building/Logical Objects.yy",
+    "path": "folders/Primary/Logical Objects.yy",
   },
   "resourceVersion": "1.0",
   "name": "obj_player_start",

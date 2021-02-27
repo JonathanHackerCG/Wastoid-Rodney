@@ -70,7 +70,7 @@
   "nineSlice": null,
   "parent": {
     "name": "Sprites",
-    "path": "folders/Level Building/Logical Objects/Sprites.yy",
+    "path": "folders/Primary/Logical Objects/Sprites.yy",
   },
   "resourceVersion": "1.0",
   "name": "spr_player_start",

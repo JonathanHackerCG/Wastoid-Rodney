@@ -31,7 +31,7 @@
   "overriddenProperties": [],
   "parent": {
     "name": "Powerups",
-    "path": "folders/Level Building/Powerups.yy",
+    "path": "folders/Primary/Powerups.yy",
   },
   "resourceVersion": "1.0",
   "name": "obj_powerup_base",

@@ -30,7 +30,7 @@
   "overriddenProperties": [],
   "parent": {
     "name": "Enemy",
-    "path": "folders/Bullets/Enemy.yy",
+    "path": "folders/Primary/Bullets/Enemy.yy",
   },
   "resourceVersion": "1.0",
   "name": "obj_bullet_enemy",

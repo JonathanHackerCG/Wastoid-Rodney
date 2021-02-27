@@ -5,7 +5,10 @@
   },
   "solid": false,
   "visible": false,
-  "spriteMaskId": null,
+  "spriteMaskId": {
+    "name": "spr_player",
+    "path": "sprites/spr_player/spr_player.yy",
+  },
   "persistent": true,
   "parentObjectId": {
     "name": "par_entity",
@@ -34,7 +37,7 @@
   "overriddenProperties": [],
   "parent": {
     "name": "Player",
-    "path": "folders/Player.yy",
+    "path": "folders/Control/Player.yy",
   },
   "resourceVersion": "1.0",
   "name": "obj_player",

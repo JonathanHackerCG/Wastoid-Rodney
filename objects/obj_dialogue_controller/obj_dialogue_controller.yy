@@ -24,7 +24,7 @@
   "overriddenProperties": [],
   "parent": {
     "name": "CG_Dialogue",
-    "path": "folders/CG_Modules/CG_Dialogue.yy",
+    "path": "folders/Functions/CG_Modules/CG_Dialogue.yy",
   },
   "resourceVersion": "1.0",
   "name": "obj_dialogue_controller",

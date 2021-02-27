@@ -29,7 +29,7 @@
   "overriddenProperties": [],
   "parent": {
     "name": "Bullets",
-    "path": "folders/Bullets.yy",
+    "path": "folders/Primary/Bullets.yy",
   },
   "resourceVersion": "1.0",
   "name": "par_bullet",

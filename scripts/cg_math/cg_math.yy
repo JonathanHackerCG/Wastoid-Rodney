@@ -3,7 +3,7 @@
   "isCompatibility": false,
   "parent": {
     "name": "CG_Math",
-    "path": "folders/CG_Modules/CG_Math.yy",
+    "path": "folders/Functions/CG_Modules/CG_Math.yy",
   },
   "resourceVersion": "1.0",
   "name": "cg_math",

@@ -30,7 +30,7 @@
   "overriddenProperties": [],
   "parent": {
     "name": "Player",
-    "path": "folders/Player.yy",
+    "path": "folders/Control/Player.yy",
   },
   "resourceVersion": "1.0",
   "name": "obj_key_follow",
