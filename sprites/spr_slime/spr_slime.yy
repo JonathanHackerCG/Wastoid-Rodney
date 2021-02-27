@@ -67,9 +67,10 @@
   "layers": [
     {"visible":true,"isLocked":false,"blendMode":0,"opacity":100.0,"displayName":"default","resourceVersion":"1.0","name":"a2a55a9e-72c9-4c16-8b9b-97e373fd95e1","tags":[],"resourceType":"GMImageLayer",},
   ],
+  "nineSlice": null,
   "parent": {
-    "name": "Enemies",
-    "path": "folders/Enemies.yy",
+    "name": "Sprites",
+    "path": "folders/Enemies/Sprites.yy",
   },
   "resourceVersion": "1.0",
   "name": "spr_slime",

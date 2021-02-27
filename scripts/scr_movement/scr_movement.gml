@@ -7,6 +7,8 @@
 /// @param speed
 function step_direction(dir, spd) {
 	#region Adjusting parameters.
+	var x1 = x; var y1 = y;
+	
 	//Make speed absolute and correct direction.
 	if (spd < 0)
 	{
@@ -184,10 +186,10 @@ function step_towards_point(xx, yy, dis)
 	}
 }
 #endregion
-#region step_towards_point(xx, yy, distance);
+#region step_towards_point_solid(xx, yy, distance);
 /// @description Moves the instances towards a particular point a particular distance.
 /// Returns true/false if it has moved or not.
-/// @function step_towards_point(x, y, distance);
+/// @function step_towards_point_solid(x, y, distance);
 /// @param x
 /// @param y
 /// @param distance

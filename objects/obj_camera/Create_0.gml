@@ -57,7 +57,7 @@ function update()
 #endregion
 #region follow(inst, factor, [xoffset], [yoffset]);
 /// @description The camemra follows an instance
-/// @function scr_camera_follow(instance, factor, [xoffset], [yoffset]);
+/// @function follow(instance, factor, [xoffset], [yoffset]);
 /// @param instance
 /// @param factor
 /// @param [xoffset]
@@ -69,9 +69,9 @@ function follow(_inst, _factor, _xoff, _yoff)
 	if (!instance_exists(_inst)) { return false; }
 
 	//Find target locations.
-	var targetx = rdec(_inst.x - wcenter);
+	var targetx = rdec(_inst.x - wcenter) + _xoff;
 	targetx = clamp(targetx, 0, room_width - width);	
-	var targety = rdec(_inst.y - hcenter);
+	var targety = rdec(_inst.y - hcenter) + _yoff;
 	targety = clamp(targety, 0, room_height - height);
 	
 	if (xpos == targetx && ypos == targety) {	return false;	}

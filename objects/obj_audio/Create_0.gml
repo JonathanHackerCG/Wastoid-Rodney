@@ -26,15 +26,15 @@ function update_beat()
 	var pos = audio_sound_get_track_position(msc);
 	var beat = pos * bps;
 	var off_new = beat - round(beat);
-	off_new = ceil(off_new * second(1));
+	off_new = off_new * second(1);
 	
 	//Calculating exact frame of beat.
-	if (off_beat < 0 && off_new >= 0)
+	if (off_beat < 0 && off_new > 0)
 	{
 		off_new = 0;
 		show_debug_message("zero");
 	}
-	off_beat = off_new;
+	off_beat = ceil(off_new);
 	
 	//Return the final beat offset.
 	return off_beat;

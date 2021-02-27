@@ -2,18 +2,26 @@
 event_inherited();
 
 #region Movement.
+spd_max = 1.5;
+if (speedy) { spd_max = 2.0; }
+
 var axis_x = global.input.axis_value(input.axis_lx);
 var axis_y = global.input.axis_value(input.axis_ly);
 var dir = point_direction(0, 0, axis_x, axis_y);
-var spd = clamp(point_distance(0, 0, axis_x, axis_y) * var_speed, -var_speed, var_speed);
-step_direction_solid(dir, spd);
+if (abs(spd_goto) > spd_max / 3) { var_direction = dir; }
+
+spd_goto = point_distance(0, 0, axis_x, axis_y);
+spd_goto = clamp(spd_goto * spd_max, -spd_max, spd_max);
+spd = lerp(spd, spd_goto, accel);
+
+step_direction_solid(var_direction, spd);
 #endregion
 #region Aiming.
 var axis_x = global.input.axis_value(input.axis_rx);
 var axis_y = global.input.axis_value(input.axis_ry);
 var dir = point_direction(0, 0, axis_x, axis_y);
 var range = clamp(point_distance(0, 0, axis_x, axis_y) * var_range, 0, var_range);
-fire_goto = dir;
+if (range > var_range / 3) { fire_goto = dir; }
 
 var dis_min = undefined;
 with (par_enemy)
@@ -34,8 +42,17 @@ with (par_enemy)
 fire_angle = alerp(fire_angle, fire_goto, aim_speed);
 #endregion
 #region Shooting.
-if (global.input.check_held(input.SR) && game_tick % 15 == 0)
+fire_rate = 30;
+if (speedy) { fire_rate = 15; }
+
+if (global.input.check_held(input.SR) && game_tick % fire_rate == 0)
 {
 	bullet(obj_bullet_player, fire_angle, 4);
+	if (tripleshot)
+	{
+		var off = 15;
+		bullet(obj_bullet_player, fire_angle + off, 4);
+		bullet(obj_bullet_player, fire_angle - off, 4);
+	}
 }
 #endregion
