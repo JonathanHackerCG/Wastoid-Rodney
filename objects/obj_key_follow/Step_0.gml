@@ -1,5 +1,7 @@
-/// @description 
+/// @description Following the player object.
 event_inherited();
+
+if (!instance_exists(player)) { exit; }
 
 _depth = -bbox_bottom;
 var dis = point_distance(x, y, player.x, player.y);

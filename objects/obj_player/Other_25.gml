@@ -1,6 +1,9 @@
 /// @description Player draw.
 event_inherited();
 
+if (x <= 0 || y <= 0) { exit; }
+
+/*
 draw_set_color(c_white);
 var axis_x = global.input.axis_value(input.axis_rx);
 var axis_y = global.input.axis_value(input.axis_ry);

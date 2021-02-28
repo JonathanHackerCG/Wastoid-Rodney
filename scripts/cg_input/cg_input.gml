@@ -193,7 +193,7 @@ function InputController() constructor
 				if (gamepad_is_connected(_gamepad) && check._gp_axis != undefined)
 				{
 					var gp_value = gamepad_axis_value(_gamepad, check._gp_axis);
-					if (abs(gp_value) > value) { value = gp_value; }
+					if (abs(gp_value) > abs(value)) { value = gp_value; }
 				}
 				
 				//Incrementing axis time.

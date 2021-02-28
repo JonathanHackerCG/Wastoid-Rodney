@@ -6,6 +6,7 @@ enum textbox_type
 	text,
 	question,
 	answer,
+	menu,
 	
 	//Commands.
 	goto,
@@ -120,6 +121,9 @@ function DialogueQueue() constructor
 		box_bufferB = _bufferB;
 		box_bufferL = _bufferL;
 		box_bufferR = _bufferR;
+		
+		scribble_set_box_align(fa_left, fa_top);
+		scribble_set_wrap(box_width - box_bufferR - box_bufferL, box_height);
 	}
 	#endregion
 	#region set_box_display(sprite, height, width, font, separation);
@@ -137,6 +141,9 @@ function DialogueQueue() constructor
 		box_width = _width;
 		box_font = _font;
 		box_separation = _separation;
+
+		scribble_set_box_align(fa_left, fa_top);
+		scribble_set_wrap(box_width - box_bufferR - box_bufferL, box_height);
 	}
 	#endregion
 		
@@ -173,10 +180,10 @@ function DialogueQueue() constructor
 	/// @function set_answer_display(sprite, select, height, width, font);
 	/// @description Defines the sprite, height, and width of the nametag box.
 	/// @param sprite
+	/// @param select
 	/// @param height
 	/// @param width
 	/// @param font
-	/// @param separation
 	static set_answer_display = function(_sprite, _select, _height, _width, _font)
 	{
 		answer_sprite = _sprite;
@@ -220,7 +227,7 @@ function DialogueQueue() constructor
 		
 		var textbox = _textboxes[| _pos];
 		var type = textbox.type;
-		if (type == textbox_type.text || type == textbox_type.question)
+		if (type == textbox_type.text || type == textbox_type.question || type == textbox_type.menu)
 		{
 			#region Initialize default display variables.
 			var name = _nametag;
@@ -230,7 +237,7 @@ function DialogueQueue() constructor
 			#endregion
 
 			//Question/Answer display offsets.
-			if (type == textbox_type.question)
+			if (type == textbox_type.question || type == textbox_type.menu)
 			{
 				yoff -= _answer_num * (answer_height + answer_gap);
 				#region Calculating position coordinates.
@@ -245,35 +252,47 @@ function DialogueQueue() constructor
 				{
 					var ans = _answer_list[| i];
 					var off = (i * (answer_height + answer_gap));
-					draw_sprite(answer_sprite, 0, ansx1 - answer_bufferL, ansy1 - answer_bufferT + off);
-					if (_answer_select == i) { draw_sprite(answer_sprite_select, 0, ansx1 - answer_bufferL, ansy1 - answer_bufferT + off); }
+					var aid = 0;
+					if (ans.toggle != noone)
+					{
+						aid = 1 + ans.toggle_check();
+					}
+					
+					draw_sprite(answer_sprite, aid, ansx1 - answer_bufferL, ansy1 - answer_bufferT + off);
+					if (_answer_select == i) { draw_sprite(answer_sprite_select, aid, ansx1 - answer_bufferL, ansy1 - answer_bufferT + off); }
 					if (show_bounds) { draw_rectangle(ansx1, ansy1 + off, ansx2, ansy2 + off, true); }
-					draw_text(ansx1, ansy1 + off, ans.text);
+					scribble_draw(ansx1, ansy1 + off, ans.text);
 				}
 				#endregion
 			}
 				
-			//Test draw viable textbox position.
-			draw_sprite(name_sprite, 0, xoff, yoff);
-			draw_sprite(box_sprite, 0, xoff, yoff);
-			
 			#region Drawing nametag.
-			var namex1 = xoff + name_bufferL;
-			var namey1 = yoff + name_bufferT - name_height;
-			var namex2 = xoff + name_width - name_bufferB;
-			var namey2 = yoff - name_bufferR;
+			if (name != "")
+			{
+				draw_sprite(name_sprite, 0, xoff, yoff);
+				
+				var namex1 = xoff + name_bufferL;
+				var namey1 = yoff + name_bufferT - name_height;
+				var namex2 = xoff + name_width - name_bufferB;
+				var namey2 = yoff - name_bufferR;
 			
-			if (show_bounds) { draw_rectangle(namex1, namey1, namex2, namey2, true); }
-			draw_text(namex1, namey1, name);
+				if (show_bounds) { draw_rectangle(namex1, namey1, namex2, namey2, true); }
+				scribble_draw(namex1, namey1, name);
+			}
 			#endregion
 			#region Drawing textbox.
-			var boxx1 = xoff + box_bufferL;
-			var boxy1 = yoff + box_bufferT;
-			var boxx2 = xoff + box_width - box_bufferR;
-			var boxy2 = yoff + box_height - box_bufferB;
+			if (type != textbox_type.menu)
+			{
+				draw_sprite(box_sprite, 0, xoff, yoff);
 			
-			if (show_bounds) { draw_rectangle(boxx1, boxy1, boxx2, boxy2, true); }
-			draw_text_ext(boxx1, boxy1, text, box_separation, box_width - box_bufferR);
+				var boxx1 = xoff + box_bufferL;
+				var boxy1 = yoff + box_bufferT;
+				var boxx2 = xoff + box_width - box_bufferR;
+				var boxy2 = yoff + box_height - box_bufferB;
+			
+				if (show_bounds) { draw_rectangle(boxx1, boxy1, boxx2, boxy2, true); }
+				scribble_draw(boxx1, boxy1, text);
+			}
 			#endregion
 		}
 	}
@@ -303,14 +322,27 @@ function DialogueQueue() constructor
 			#endregion
 			#region Question/Answer text.
 			case textbox_type.question:
+			case textbox_type.menu:
 			{
 				//Confirming answer to question.
 				if (_input_up && _answer_select > 0) { _answer_select --; }
 				if (_input_down && _answer_select < _answer_num - 1) { _answer_select ++; }
 				if (_input_confirm)
 				{
-					if (_answer_num > 0) { _goto_execute(_answer_list[| _answer_select].pos); }
-					next();
+					if (_answer_num > 0)
+					{
+						var ans = _answer_list[| _answer_select];
+						if (ans.toggle == noone)
+						{
+							_goto_execute(ans.pos);
+							next();
+						}
+						else
+						{
+							ans.toggle_execute();
+							ans.toggle = ans.toggle_check();
+						}
+					}
 				}
 			} break;
 			#endregion
@@ -366,20 +398,25 @@ function DialogueQueue() constructor
 			#region Nametag
 			case textbox_type.name:
 			{
-				_nametag = textbox.name;
+				if (textbox.name != "")
+				{
+					_nametag = scribble_draw(0, 0, "[" + name_font + "]" + textbox.name);
+				} else { _nametag = ""; }
 				next();
 			} break;
 			#endregion
 			#region Text
 			case textbox_type.text:
 			{
-				_message = textbox.text;
+				_message = scribble_draw(0, 0, "[" + box_font + "]" + textbox.text);
 			} break;
 			#endregion
 			#region Question
 			case textbox_type.question:
+			case textbox_type.menu:
 			{
-				_message = textbox.text;
+				if (type == textbox_type.question) { _message = scribble_draw(0, 0, "[" + box_font + "]" + textbox.text); }
+				else { _message = ""; }
 				_answer_select = textbox.select;
 				ds_list_clear(_answer_list);
 				#region Building a list of answers after a question.
@@ -563,16 +600,44 @@ function DialogueQueue() constructor
 		return _textbox_queue(textbox);
 	}
 	#endregion
+	#region DialogueQueue.menu([select]);
+	/// @function menu([select]);
+	/// @description Adds a menu (only answers) textbox.
+	/// @param [select]
+	static menu = function(_text, _select)
+	{
+		var textbox = new _Textbox(textbox_type.menu);
+		textbox.select = 0;
+		if (!is_undefined(_select)) { textbox.select = _select; }
+		return _textbox_queue(textbox);
+	}
+	#endregion
 	#region DialogueQueue.answer(text, pos);
 	/// @function answer(text, pos);
 	/// @description An answer response to a question.
 	/// @param text
 	/// @param pos
-	static answer = function(_text, _pos)
+	/// @param [toggle_check]
+	/// @param [toggle_execute]
+	static answer = function(_text, _pos, _toggle_check, _toggle_execute)
 	{
 		var textbox = new _Textbox(textbox_type.answer);
-		textbox.text = _text;
+		textbox.text = scribble_draw(0, 0, "[" + answer_font + "]" + _text);
 		textbox.pos = _pos;
+		
+		if (is_undefined(_toggle_check))
+		{
+			textbox.toggle = noone;
+			textbox.toggle_check = noone;
+			textbox.toggle_execute = noone;
+		}
+		else
+		{
+			textbox.toggle_check = _toggle_check;
+			textbox.toggle_execute = _toggle_execute;
+			textbox.toggle = _toggle_check();
+		}
+		
 		return _textbox_queue(textbox);
 	}
 	#endregion

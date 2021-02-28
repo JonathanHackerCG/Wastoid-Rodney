@@ -8,14 +8,14 @@
   "collisionTolerance": 0,
   "swfPrecision": 2.525,
   "bbox_left": 0,
-  "bbox_right": 255,
+  "bbox_right": 159,
   "bbox_top": 0,
-  "bbox_bottom": 31,
+  "bbox_bottom": 11,
   "HTile": false,
   "VTile": false,
   "For3D": false,
-  "width": 256,
-  "height": 32,
+  "width": 160,
+  "height": 12,
   "textureGroupId": {
     "name": "Default",
     "path": "texturegroups/Default",
@@ -27,6 +27,12 @@
     {"compositeImage":{"FrameId":{"name":"670e8a10-f800-49a1-891e-0bffb2a8d16d","path":"sprites/spr_dialogue_answer/spr_dialogue_answer.yy",},"LayerId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},"images":[
         {"FrameId":{"name":"670e8a10-f800-49a1-891e-0bffb2a8d16d","path":"sprites/spr_dialogue_answer/spr_dialogue_answer.yy",},"LayerId":{"name":"af224f53-238e-45b4-904a-1a3d64bd5e02","path":"sprites/spr_dialogue_answer/spr_dialogue_answer.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
       ],"parent":{"name":"spr_dialogue_answer","path":"sprites/spr_dialogue_answer/spr_dialogue_answer.yy",},"resourceVersion":"1.0","name":"670e8a10-f800-49a1-891e-0bffb2a8d16d","tags":[],"resourceType":"GMSpriteFrame",},
+    {"compositeImage":{"FrameId":{"name":"0a1c91de-84e3-497a-b84e-4b1da7513775","path":"sprites/spr_dialogue_answer/spr_dialogue_answer.yy",},"LayerId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},"images":[
+        {"FrameId":{"name":"0a1c91de-84e3-497a-b84e-4b1da7513775","path":"sprites/spr_dialogue_answer/spr_dialogue_answer.yy",},"LayerId":{"name":"af224f53-238e-45b4-904a-1a3d64bd5e02","path":"sprites/spr_dialogue_answer/spr_dialogue_answer.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
+      ],"parent":{"name":"spr_dialogue_answer","path":"sprites/spr_dialogue_answer/spr_dialogue_answer.yy",},"resourceVersion":"1.0","name":"0a1c91de-84e3-497a-b84e-4b1da7513775","tags":[],"resourceType":"GMSpriteFrame",},
+    {"compositeImage":{"FrameId":{"name":"f8731bd7-8f18-4ddb-b4e0-3e97832470ef","path":"sprites/spr_dialogue_answer/spr_dialogue_answer.yy",},"LayerId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},"images":[
+        {"FrameId":{"name":"f8731bd7-8f18-4ddb-b4e0-3e97832470ef","path":"sprites/spr_dialogue_answer/spr_dialogue_answer.yy",},"LayerId":{"name":"af224f53-238e-45b4-904a-1a3d64bd5e02","path":"sprites/spr_dialogue_answer/spr_dialogue_answer.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
+      ],"parent":{"name":"spr_dialogue_answer","path":"sprites/spr_dialogue_answer/spr_dialogue_answer.yy",},"resourceVersion":"1.0","name":"f8731bd7-8f18-4ddb-b4e0-3e97832470ef","tags":[],"resourceType":"GMSpriteFrame",},
   ],
   "sequence": {
     "spriteId": {"name":"spr_dialogue_answer","path":"sprites/spr_dialogue_answer/spr_dialogue_answer.yy",},
@@ -36,12 +42,14 @@
     "playbackSpeedType": 0,
     "autoRecord": true,
     "volume": 1.0,
-    "length": 1.0,
+    "length": 3.0,
     "events": {"Keyframes":[],"resourceVersion":"1.0","resourceType":"KeyframeStore<MessageEventKeyframe>",},
     "moments": {"Keyframes":[],"resourceVersion":"1.0","resourceType":"KeyframeStore<MomentsEventKeyframe>",},
     "tracks": [
       {"name":"frames","spriteId":null,"keyframes":{"Keyframes":[
             {"id":"5ccd3358-f184-48d8-b162-89d5368f9c7b","Key":0.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"670e8a10-f800-49a1-891e-0bffb2a8d16d","path":"sprites/spr_dialogue_answer/spr_dialogue_answer.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
+            {"id":"08f00f30-e7fb-4c29-aac5-d055eca4fd1b","Key":1.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"0a1c91de-84e3-497a-b84e-4b1da7513775","path":"sprites/spr_dialogue_answer/spr_dialogue_answer.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
+            {"id":"1d3080ac-9353-492d-b293-c239e88eee77","Key":2.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"f8731bd7-8f18-4ddb-b4e0-3e97832470ef","path":"sprites/spr_dialogue_answer/spr_dialogue_answer.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
           ],"resourceVersion":"1.0","resourceType":"KeyframeStore<SpriteFrameKeyframe>",},"trackColour":0,"inheritsTrackColour":true,"builtinName":0,"traits":0,"interpolation":1,"tracks":[],"events":[],"modifiers":[],"isCreationTrack":false,"resourceVersion":"1.0","tags":[],"resourceType":"GMSpriteFramesTrack",},
     ],
     "visibleRange": null,

@@ -8,7 +8,7 @@ for (var i = 0; i < inst_num; i++)
 	with (inst) { event_user(ev_user.draw_default); }
 }
 
-if (flash_alpha > 0.0)
+if (flash_alpha > 0.0 && global.flashing)
 {
 	draw_set_color(c_white);
 	draw_set_alpha(flash_alpha);

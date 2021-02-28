@@ -1,13 +1,11 @@
 /// @description Camera initialization and methods.
 
 #region Scribble and font initialization.
-/*
 scribble_init("", "fnt_pixelfont", false);
 global.fnt_pixelfont = font_add_sprite_ext(fnt_pixelfont, "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz.,?!'()<>^*+=-/%:;_$", 1, 4);
 global.fnt_smallfont = font_add_sprite_ext(fnt_smallfont, "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz.,()'?!-/$", 1, 3);
 scribble_add_spritefont("fnt_pixelfont", "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz.,?!'()<>^*+=-/%:;_$", 1, 4);
 scribble_add_spritefont("fnt_smallfont", "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz.,()'?!-/$", 1, 3);
-*/
 #endregion
 
 #region init();
@@ -171,6 +169,7 @@ function init_screen(width_min, width_max, height_min, height_max, scale_base, f
 		var offset_y = (screen_h / 2) - (height / 2);
 		window_set_size(width, height);
 		window_set_position(offset_x, offset_y);
+		window_set_fullscreen(false);
 	}
 	else
 	{
@@ -206,6 +205,8 @@ function init_screen(width_min, width_max, height_min, height_max, scale_base, f
 screenshake = 0;
 screenshake_max = 16;
 flash_alpha = 0.00;
+global.screenshake = true;
+global.flashing = true;
 
 #region Main draw variable initialization.
 depthgrid = ds_grid_create(2, 1);

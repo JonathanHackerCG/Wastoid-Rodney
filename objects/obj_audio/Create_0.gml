@@ -1,6 +1,9 @@
 /// @description Initialize audio functions.
 event_inherited();
 
+global.mute_sound = false;
+global.mute_music = false;
+
 msc = noone;
 bpm = 0;
 bps = 0;
@@ -12,8 +15,8 @@ off_beat = 0;
 /// @param bpm
 function start_music(_music, _bpm)
 {
-	msc = audio_play_sound(_music, 1, true);
-	audio_sound_gain(msc, 0.2, 0);
+	msc = audio_play_sound(_music, !global.mute_music, true);
+	audio_sound_gain(msc, !global.mute_music, 0);
 	bpm = _bpm;
 	bps = bpm / 60;
 }
@@ -32,9 +35,8 @@ function update_beat()
 	if (off_beat < 0 && off_new > 0)
 	{
 		off_new = 0;
-		show_debug_message("zero");
 	}
-	off_beat = ceil(off_new);
+	off_beat = off_new;
 	
 	//Return the final beat offset.
 	return off_beat;
