@@ -1,3 +1,7 @@
 /// @description DRAW EVENT
 event_inherited();
-draw_self();
+
+if (sprite_index != noone)
+{
+	draw_self();
+}

@@ -504,6 +504,7 @@ function DialogueQueue() constructor
 	/// @description Clears the DialogueQueue.
 	static clear = function()
 	{
+		_nametag = "";
 		ds_list_clear(_textboxes);
 		_pos = -1;
 	}
