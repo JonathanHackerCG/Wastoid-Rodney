@@ -10,14 +10,14 @@
     "name": "audiogroup_default",
     "path": "audiogroups/audiogroup_default",
   },
-  "soundFile": "msc_necrodancer.mp3",
+  "soundFile": "msc_levelA.mp3",
   "duration": 180.876831,
   "parent": {
     "name": "Music",
     "path": "folders/Music.yy",
   },
   "resourceVersion": "1.0",
-  "name": "msc_necrodancer",
+  "name": "msc_levelA",
   "tags": [],
   "resourceType": "GMSound",
 }

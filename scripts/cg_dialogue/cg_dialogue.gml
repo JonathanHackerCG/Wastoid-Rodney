@@ -753,3 +753,53 @@ function DialogueQueue() constructor
 	}
 	#endregion
 }
+
+function queue_options()
+{
+	#region Choosing Option Menu
+	con.here(2);
+	con.menu();
+	con.answer("Graphics", 20);
+	con.answer("Gameplay", 30);
+	con.answer("Audio", 40);
+	con.answer("Back", "start");
+	#endregion
+	#region Options Menus
+	#region Graphics
+	con.here(20);
+	con.menu();
+	con.answer("Fullscreen", 0,
+	function() { return global.fullscreen; },
+	function() {
+		global.fullscreen = !global.fullscreen;
+		camera.init_screen(256, 320, 180, 192, 4, global.fullscreen);
+	});
+	con.answer("Screenshake", 0,
+	function() { return global.screenshake; },
+	function() { global.screenshake = !global.screenshake; });
+	con.answer("Flashing Effects", 0,
+	function() { return global.flashing; },
+	function() { global.flashing = !global.flashing; });
+	con.answer("Back", 2);
+	#endregion
+	#region Gameplay
+	con.here(30);
+	con.menu();
+	con.answer("Aim Assist", 0,
+	function() { return player.aim_enabled; },
+	function() {	player.aim_enabled = !player.aim_enabled; });
+	con.answer("Back", 2);
+	#endregion
+	#region Audio
+	con.here(40);
+	con.menu();
+	con.answer("Mute Audio", 0,
+	function() { return global.mute_sound; },
+	function() { global.mute_sound = !global.mute_sound; });
+	con.answer("Mute Music", 0,
+	function() { return global.mute_music; },
+	function () { global.mute_music = !global.mute_music; audio_sound_gain(audio.msc, !global.mute_music, 0); });
+	con.answer("Back", 2);
+	#endregion
+	#endregion
+}

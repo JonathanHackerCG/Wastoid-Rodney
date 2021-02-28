@@ -1,6 +1,7 @@
 /// @description Following the player object.
 event_inherited();
 
+if (global.paused) { exit; }
 if (!instance_exists(player)) { exit; }
 
 _depth = -bbox_bottom;

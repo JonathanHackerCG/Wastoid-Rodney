@@ -3,6 +3,14 @@ event_inherited();
 
 if (x <= 0 || y <= 0) { exit; }
 
+if (global.input.check_pressed(input.start))
+{
+	if (global.paused) { obj_control.resume(); }
+	else { obj_control.pause(); }
+}
+
+if (global.paused) { exit; }
+
 _depth = -bbox_bottom;
 #region Movement.
 spd_max = 1.5;
