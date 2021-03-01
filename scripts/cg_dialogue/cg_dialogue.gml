@@ -806,7 +806,7 @@ function queue_options()
 	function() { global.mute_sound = !global.mute_sound; });
 	con.answer("Mute Music", 0,
 	function() { return global.mute_music; },
-	function () { global.mute_music = !global.mute_music; audio_sound_gain(audio.msc, !global.mute_music, 0); });
+	function () { global.mute_music = !global.mute_music; audio_sound_gain(audio.msc, !global.mute_music / 4, 0); });
 	con.answer("Back", 2);
 	#endregion
 	#endregion

@@ -1,7 +1,7 @@
 {
   "spriteId": {
-    "name": "spr_wall_neon",
-    "path": "sprites/spr_wall_neon/spr_wall_neon.yy",
+    "name": "spr_wall_aluminum",
+    "path": "sprites/spr_wall_aluminum/spr_wall_aluminum.yy",
   },
   "solid": true,
   "visible": false,
@@ -31,7 +31,7 @@
     "path": "folders/Primary/Walls.yy",
   },
   "resourceVersion": "1.0",
-  "name": "obj_wall_neon",
+  "name": "obj_wall_aluminum",
   "tags": [],
   "resourceType": "GMObject",
 }

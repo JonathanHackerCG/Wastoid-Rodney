@@ -43,10 +43,13 @@ con.here(200);
 con.function_execute(function() { obj_control.start_level(rm_tutorial); global.story = false; });
 con.goto(100);
 con.here(300);
-con.function_execute(function() { obj_control.start_level(rm_levelA); global.story = false;});
+con.function_execute(function() { obj_control.start_level(rm_levelA); global.story = false; });
 con.goto(100);
 con.here(400);
-con.function_execute(function() { obj_control.start_level(rm_levelB); global.story = false;});
+con.function_execute(function() { obj_control.start_level(rm_levelB); global.story = false; });
+con.goto(100);
+con.here(500);
+con.function_execute(function() { obj_control.start_level(rm_levelC); global.story = false; });
 con.goto(100);
 #endregion
 

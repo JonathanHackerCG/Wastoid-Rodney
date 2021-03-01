@@ -172,8 +172,8 @@
     "resourceType": "GMNineSliceData",
   },
   "parent": {
-    "name": "Primary",
-    "path": "folders/Primary.yy",
+    "name": "Sprites",
+    "path": "folders/Primary/Walls/Sprites.yy",
   },
   "resourceVersion": "1.0",
   "name": "spr_wall",

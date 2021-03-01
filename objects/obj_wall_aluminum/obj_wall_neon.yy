@@ -27,8 +27,8 @@
   "properties": [],
   "overriddenProperties": [],
   "parent": {
-    "name": "Walls",
-    "path": "folders/Primary/Walls.yy",
+    "name": "Primary",
+    "path": "folders/Primary.yy",
   },
   "resourceVersion": "1.0",
   "name": "obj_wall_neon",

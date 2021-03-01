@@ -29,8 +29,8 @@
   "properties": [],
   "overriddenProperties": [],
   "parent": {
-    "name": "Primary",
-    "path": "folders/Primary.yy",
+    "name": "Kung Party",
+    "path": "Kung Party.yyp",
   },
   "resourceVersion": "1.0",
   "name": "obj_wall",

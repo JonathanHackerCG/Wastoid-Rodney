@@ -103,12 +103,12 @@
   "gridX": 0,
   "gridY": 0,
   "frames": [
-    {"compositeImage":{"FrameId":{"name":"e2659169-99bf-472b-8bbb-6ab0e087a8a6","path":"sprites/spr_wall_raceway/spr_wall_raceway.yy",},"LayerId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},"images":[
-        {"FrameId":{"name":"e2659169-99bf-472b-8bbb-6ab0e087a8a6","path":"sprites/spr_wall_raceway/spr_wall_raceway.yy",},"LayerId":{"name":"27fc1867-ed13-4f71-8985-dfe84c5abccc","path":"sprites/spr_wall_raceway/spr_wall_raceway.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
-      ],"parent":{"name":"spr_wall_raceway","path":"sprites/spr_wall_raceway/spr_wall_raceway.yy",},"resourceVersion":"1.0","name":"e2659169-99bf-472b-8bbb-6ab0e087a8a6","tags":[],"resourceType":"GMSpriteFrame",},
+    {"compositeImage":{"FrameId":{"name":"6143bb0c-a6b8-4fda-9626-dc68c991d62a","path":"sprites/spr_wall/spr_wall.yy",},"LayerId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},"images":[
+        {"FrameId":{"name":"6143bb0c-a6b8-4fda-9626-dc68c991d62a","path":"sprites/spr_wall/spr_wall.yy",},"LayerId":{"name":"37f93c2b-6fd9-4dfa-b681-a2ac5dcff9a5","path":"sprites/spr_wall/spr_wall.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
+      ],"parent":{"name":"spr_wall","path":"sprites/spr_wall/spr_wall.yy",},"resourceVersion":"1.0","name":"6143bb0c-a6b8-4fda-9626-dc68c991d62a","tags":[],"resourceType":"GMSpriteFrame",},
   ],
   "sequence": {
-    "spriteId": {"name":"spr_wall_raceway","path":"sprites/spr_wall_raceway/spr_wall_raceway.yy",},
+    "spriteId": {"name":"spr_wall","path":"sprites/spr_wall/spr_wall.yy",},
     "timeUnits": 1,
     "playback": 1,
     "playbackSpeed": 10.0,
@@ -120,11 +120,11 @@
     "moments": {"Keyframes":[],"resourceVersion":"1.0","resourceType":"KeyframeStore<MomentsEventKeyframe>",},
     "tracks": [
       {"name":"frames","spriteId":null,"keyframes":{"Keyframes":[
-            {"id":"c3f0a0d1-d180-46ee-af05-4ba0e22712e7","Key":0.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"e2659169-99bf-472b-8bbb-6ab0e087a8a6","path":"sprites/spr_wall_raceway/spr_wall_raceway.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
+            {"id":"bffada82-b730-48f6-989a-4a0d87d32687","Key":0.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"6143bb0c-a6b8-4fda-9626-dc68c991d62a","path":"sprites/spr_wall/spr_wall.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
           ],"resourceVersion":"1.0","resourceType":"KeyframeStore<SpriteFrameKeyframe>",},"trackColour":0,"inheritsTrackColour":true,"builtinName":0,"traits":0,"interpolation":1,"tracks":[],"events":[],"modifiers":[],"isCreationTrack":false,"resourceVersion":"1.0","tags":[],"resourceType":"GMSpriteFramesTrack",},
     ],
     "visibleRange": null,
-    "lockOrigin": false,
+    "lockOrigin": true,
     "showBackdrop": true,
     "showBackdropImage": false,
     "backdropImagePath": "",
@@ -137,14 +137,14 @@
     "yorigin": 0,
     "eventToFunction": {},
     "eventStubScript": null,
-    "parent": {"name":"spr_wall_raceway","path":"sprites/spr_wall_raceway/spr_wall_raceway.yy",},
+    "parent": {"name":"spr_wall","path":"sprites/spr_wall/spr_wall.yy",},
     "resourceVersion": "1.3",
-    "name": "spr_wall_raceway",
+    "name": "spr_wall",
     "tags": [],
     "resourceType": "GMSequence",
   },
   "layers": [
-    {"visible":true,"isLocked":false,"blendMode":0,"opacity":100.0,"displayName":"default","resourceVersion":"1.0","name":"27fc1867-ed13-4f71-8985-dfe84c5abccc","tags":[],"resourceType":"GMImageLayer",},
+    {"visible":true,"isLocked":false,"blendMode":0,"opacity":100.0,"displayName":"default","resourceVersion":"1.0","name":"37f93c2b-6fd9-4dfa-b681-a2ac5dcff9a5","tags":[],"resourceType":"GMImageLayer",},
   ],
   "nineSlice": {
     "left": 2,
@@ -172,11 +172,11 @@
     "resourceType": "GMNineSliceData",
   },
   "parent": {
-    "name": "Sprites",
-    "path": "folders/Primary/Walls/Sprites.yy",
+    "name": "Walls",
+    "path": "folders/Primary/Walls.yy",
   },
   "resourceVersion": "1.0",
-  "name": "spr_wall_raceway",
+  "name": "spr_wall",
   "tags": [],
   "resourceType": "GMSprite",
 }
