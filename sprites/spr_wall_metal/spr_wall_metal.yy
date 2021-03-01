@@ -93,8 +93,8 @@
     "resourceType": "GMNineSliceData",
   },
   "parent": {
-    "name": "Kung Party",
-    "path": "Kung Party.yyp",
+    "name": "Sprites",
+    "path": "folders/Primary/Walls/Sprites.yy",
   },
   "resourceVersion": "1.0",
   "name": "spr_wall_metal",
