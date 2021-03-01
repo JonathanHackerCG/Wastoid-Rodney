@@ -43,3 +43,45 @@ function update_beat()
 	return off_beat;
 }
 #endregion
+#region play_sound();
+/// @description play_sound(sound_id, volume, pitch_variation, [pitch_offset], [priority], [loops]);
+/// @function play_sound
+/// @param sound_id
+/// @param volume
+/// @param [pitch_variation]
+/// @param [pitch_offset]
+/// @param [priority]
+/// @param [loops]
+function play_sound() {
+	var sound = argument[0];
+	var volume = argument[1];
+
+	var pitch = 0.2;
+	var pitch_offset = 0;
+	var priority = 1;
+	var loops = false;
+
+	if (argument_count > 2)
+	{
+		var pitch = argument[2];
+		if (argument_count > 3)
+		{
+			pitch_offset = argument[3];
+			if (argument_count > 4)
+			{
+				priority = argument[4];
+				if (argument_count > 5)
+				{
+					loops = argument[5];
+				}
+			}
+		}
+	}
+
+	var snd = audio_play_sound(sound, priority, loops);
+	audio_sound_gain(snd, volume, 0);
+	audio_sound_pitch(snd, 1+random_range(-pitch, pitch)+pitch_offset);
+
+	return snd;
+}
+#endregion

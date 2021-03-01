@@ -22,7 +22,7 @@ function start_level(_level)
 		case rm_tutorial: audio.start_music(msc_drums, 100); break;
 		case rm_levelA: audio.start_music(msc_levelA, 146); break;
 		case rm_levelB: audio.start_music(msc_levelB, 146); break;
-		case rm_levelC: audio.start_music(msc_introduction, 130); break;
+		case rm_levelC: audio.start_music(msc_levelA, 130); break;
 	}
 }
 
