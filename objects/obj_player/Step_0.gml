@@ -16,7 +16,6 @@ _depth = -bbox_bottom;
 #region Movement.
 spd_max = 2.75;
 if (speedy) { spd_max = 4.0; }
-
 var axis_x = global.input.axis_value(input.axis_lx);
 var axis_y = global.input.axis_value(input.axis_ly);
 var dir = point_direction(0, 0, axis_x, axis_y);
@@ -24,7 +23,8 @@ if (axis_x != 0 || axis_y != 0) { var_direction = dir; }
 
 spd_goto = point_distance(0, 0, axis_x, axis_y);
 spd_goto = clamp(spd_goto * spd_max, -spd_max, spd_max);
-spd = lerp(spd, spd_goto, accel);
+spd = lerp(spd, spd_goto, accel)
+if (dashing) { spd = 0; }
 
 step_direction_solid(var_direction, spd);
 
@@ -50,19 +50,22 @@ else
 if (global.input.check_pressed(input.SL) && dash_cooldown == -1)
 {
 	dash_cooldown = second(0.35);
-	
+	dash_move_cooldown = second(0.04);
+	dashing=1;
 	var dis = 64;
 	var xx = x + lengthdir_x(dis, var_direction);
 	var yy = y + lengthdir_y(dis, var_direction);
 	var count = 0;
-	repeat(8)
+	var reps = 8;
+	repeat(reps)
 	{
 		part_fade(x, y, layer, sprite_index, 0, 5 + count);
 		step_towards_point_solid(xx, yy, dis / 8);
 		count ++;
 	}
 }
-
+if (dash_move_cooldown >= 0) { dash_move_cooldown --; }
+else { dashing = 0; }
 if (dash_cooldown >= 0) { dash_cooldown --; }
 #endregion
 #region Aiming.
