@@ -33,6 +33,7 @@ if (place_meeting(x, y, player))
 {
 	camera.screenshake += 20;
 	player.damage(1);
+	with (player) { event_user(0); }
 }
 
 instance_destroy();

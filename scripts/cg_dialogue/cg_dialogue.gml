@@ -789,7 +789,13 @@ function queue_options()
 	con.menu();
 	con.answer("Aim Assist", 0,
 	function() { return player.aim_enabled; },
-	function() {	player.aim_enabled = !player.aim_enabled; });
+	function() { player.aim_enabled = !player.aim_enabled; });
+	con.answer("Smart Camera", 0,
+	function() { return global.smart_camera; },
+	function() { global.smart_camera = !global.smart_camera; });
+	con.answer("Permanent Powerups - Easy Mode", 0,
+	function() { return global.endless_upgrades; },
+	function() { global.endless_upgrades = !global.endless_upgrades; });
 	con.answer("Back", 2);
 	#endregion
 	#region Audio

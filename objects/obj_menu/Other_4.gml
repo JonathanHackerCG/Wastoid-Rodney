@@ -35,8 +35,8 @@ con.here(5);
 con.menu();
 con.answer("Tutorial - Radical Void", 200);
 con.answer("Level One - Robot Arcade", 300);
-con.answer("Level Two", 400);
-con.answer("Level Three", 500);
+con.answer("Level Two - Radio Raceway", 400);
+con.answer("Level Three - Aluminum Fortress", 500);
 con.answer("Back", "start");
 
 con.here(200);
@@ -44,6 +44,9 @@ con.function_execute(function() { obj_control.start_level(rm_tutorial); global.s
 con.goto(100);
 con.here(300);
 con.function_execute(function() { obj_control.start_level(rm_levelA); global.story = false;});
+con.goto(100);
+con.here(400);
+con.function_execute(function() { obj_control.start_level(rm_levelB); global.story = false;});
 con.goto(100);
 #endregion
 

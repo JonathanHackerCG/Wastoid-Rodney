@@ -1,8 +1,10 @@
 /// @description Player draw.
-event_inherited();
 
 if (x <= 0 || y <= 0) { exit; }
 //Draw health.
+
+draw_sprite_ext(spr_aim_arrow, 0, x, y, 1, 1, fire_angle, c_white, 1.00);
+event_inherited();
 
 var count = 0;
 repeat(hp)

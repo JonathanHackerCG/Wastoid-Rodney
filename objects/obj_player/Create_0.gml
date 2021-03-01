@@ -1,6 +1,7 @@
 /// @description Initialize player variables.
 event_inherited();
 
+global.endless_upgrades = false;
 paused = false;
 dash_cooldown = -1;
 
@@ -22,7 +23,7 @@ mx_previous = mouse_x;
 my_previous = mouse_y;
 
 //Aim assist values.
-aim_off = 10;
+aim_off = 15;
 aim_target_off = 5;
 aim_speed = 0.50;
 aim_enabled = true;

@@ -35,7 +35,7 @@
     "spriteId": {"name":"spr_wall_turret","path":"sprites/spr_wall_turret/spr_wall_turret.yy",},
     "timeUnits": 1,
     "playback": 1,
-    "playbackSpeed": 10.0,
+    "playbackSpeed": 2.0,
     "playbackSpeedType": 0,
     "autoRecord": true,
     "volume": 1.0,

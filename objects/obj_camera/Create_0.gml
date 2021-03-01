@@ -1,5 +1,7 @@
 /// @description Camera initialization and methods.
 
+global.smart_camera = true;
+
 #region Scribble and font initialization.
 scribble_init("", "fnt_pixelfont", false);
 global.fnt_pixelfont = font_add_sprite_ext(fnt_pixelfont, "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz.,?!'()<>^*+=-/%:;_$", 1, 4);

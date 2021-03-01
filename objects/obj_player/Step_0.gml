@@ -49,9 +49,9 @@ else
 #region Dashing.
 if (global.input.check_pressed(input.SL) && dash_cooldown == -1)
 {
-	dash_cooldown = second(0.5);
+	dash_cooldown = second(0.35);
 	
-	var dis = 48;
+	var dis = 64;
 	var xx = x + lengthdir_x(dis, var_direction);
 	var yy = y + lengthdir_y(dis, var_direction);
 	var count = 0;
