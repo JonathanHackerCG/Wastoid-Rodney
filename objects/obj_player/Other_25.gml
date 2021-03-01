@@ -2,6 +2,18 @@
 event_inherited();
 
 if (x <= 0 || y <= 0) { exit; }
+//Draw health.
+
+var count = 0;
+repeat(hp)
+{
+	draw_sprite(spr_heart, 0, camera.xpos + 12 + (16 * count), camera.ypos + 12);
+	count ++;
+}
+if (barrier)
+{
+	draw_sprite(spr_heart, 1, camera.xpos + 12 + (16 * count), camera.ypos + 12);
+}
 
 /*
 draw_set_color(c_white);

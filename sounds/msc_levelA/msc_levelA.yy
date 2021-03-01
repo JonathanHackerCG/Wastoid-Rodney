@@ -10,8 +10,8 @@
     "name": "audiogroup_default",
     "path": "audiogroups/audiogroup_default",
   },
-  "soundFile": "msc_levelA.mp3",
-  "duration": 180.876831,
+  "soundFile": "msc_levelA.ogg",
+  "duration": 34.00498,
   "parent": {
     "name": "Music",
     "path": "folders/Music.yy",

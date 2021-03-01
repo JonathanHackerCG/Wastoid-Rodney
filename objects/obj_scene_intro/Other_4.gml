@@ -1,6 +1,7 @@
 /// @description 
 event_inherited();
 
+wastoidA.sprite_index = spr_ralph_nokeytar;
 wastoid_dadA.sprite_index = noone;
 scarlettA.sprite_index = noone;
 
@@ -50,6 +51,7 @@ con.text("It is your destiny, [c_lime]WASTOID[], to throw [rainbow]THE GREATEST 
 con.nametag("Wastoid");
 con.text("Woah, that is a most excellent [wobble]destiny[] my friend, but how do I do it?");
 
+con.function_execute(function() { wastoidA.sprite_index = spr_player; });
 con.nametag("Scarlett George");
 con.text("Take this, it's the [c_yellow]KEYTAR OF ALL SPACE-TIME[].");
 con.text("All you must do is play it, and it will take you to the [rainbow]MOST RADICAL[] partiers in the entire multiverse.");

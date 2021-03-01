@@ -1,9 +1,15 @@
 /// @description Initialize player variables.
 event_inherited();
 
+paused = false;
+dash_cooldown = -1;
+
+hp = 5;
+hp_max = hp;
+
 spd = 0;
 spd_goto = 0;
-spd_max = 1.5;
+spd_max = 3;
 accel = 0.25;
 
 var_range = 320;

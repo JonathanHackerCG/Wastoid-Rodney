@@ -14,9 +14,12 @@ global.story = true;
 /// @description Begins a level.
 function start_level(_level)
 {
+	con.clear();
+	resume();
 	room_goto(_level);
 	switch(_level)
 	{
+		case rm_tutorial: audio.start_music(msc_levelA, 115); break;
 		case rm_levelA: audio.start_music(msc_levelA, 115); break;
 	}
 }
@@ -60,6 +63,7 @@ function pause()
 		player.y = -128;
 		room_goto(rm_menu);
 	});
+	con.goto(100);
 	#endregion
 
 	con.here(100);
@@ -68,6 +72,7 @@ function pause()
 
 function resume()
 {
+	player.paused = false;
 	global.paused = false;
 	audio_resume_all();
 	con.reset();

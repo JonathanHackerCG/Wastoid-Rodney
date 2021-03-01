@@ -2,3 +2,4 @@
 event_inherited();
 
 targeted = false;
+fire_angle = irandom(360);

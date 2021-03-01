@@ -31,7 +31,8 @@ with (obj_crystal)
 
 if (place_meeting(x, y, player))
 {
-	player.damage(10);
+	camera.screenshake += 20;
+	player.damage(1);
 }
 
 instance_destroy();

@@ -3,7 +3,7 @@
     "name": "spr_wall_neon",
     "path": "sprites/spr_wall_neon/spr_wall_neon.yy",
   },
-  "solid": false,
+  "solid": true,
   "visible": false,
   "spriteMaskId": null,
   "persistent": false,

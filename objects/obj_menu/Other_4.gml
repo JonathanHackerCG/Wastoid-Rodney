@@ -1,6 +1,8 @@
 /// @description Main menu.
 event_inherited();
 
+audio.start_music(msc_introduction, 146);
+
 #region Main Options
 con.here("start");
 con.menu();

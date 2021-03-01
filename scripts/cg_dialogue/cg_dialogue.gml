@@ -571,6 +571,7 @@ function DialogueQueue() constructor
 	/// @param name
 	static nametag = function(_name)
 	{
+		con.wait(10);
 		var textbox = new _Textbox(textbox_type.name);
 		textbox.name = _name;
 		return _textbox_queue(textbox);

@@ -15,6 +15,7 @@ off_beat = 0;
 /// @param bpm
 function start_music(_music, _bpm)
 {
+	audio_stop_sound(msc);
 	msc = audio_play_sound(_music, !global.mute_music, true);
 	audio_sound_gain(msc, !global.mute_music, 0);
 	bpm = _bpm;

@@ -2,6 +2,7 @@
 event_inherited();
 
 if (x <= 0 || y <= 0) { exit; }
+if (paused) { exit; }
 
 if (global.input.check_pressed(input.start))
 {
@@ -13,8 +14,8 @@ if (global.paused) { exit; }
 
 _depth = -bbox_bottom;
 #region Movement.
-spd_max = 1.5;
-if (speedy) { spd_max = 2.0; }
+spd_max = 2.75;
+if (speedy) { spd_max = 4.0; }
 
 var axis_x = global.input.axis_value(input.axis_lx);
 var axis_y = global.input.axis_value(input.axis_ly);
@@ -46,9 +47,11 @@ else
 }
 #endregion
 #region Dashing.
-if (global.input.check_pressed(input.SL))
+if (global.input.check_pressed(input.SL) && dash_cooldown == -1)
 {
-	var dis = 64;
+	dash_cooldown = second(0.5);
+	
+	var dis = 48;
 	var xx = x + lengthdir_x(dis, var_direction);
 	var yy = y + lengthdir_y(dis, var_direction);
 	var count = 0;
@@ -59,6 +62,8 @@ if (global.input.check_pressed(input.SL))
 		count ++;
 	}
 }
+
+if (dash_cooldown >= 0) { dash_cooldown --; }
 #endregion
 #region Aiming.
 var axis_x = global.input.axis_value(input.axis_rx);
@@ -102,12 +107,12 @@ if (aim_enabled)
 fire_angle = alerp(fire_angle, fire_goto, aim_speed);
 #endregion
 #region Shooting.
-fire_rate = 30;
-if (speedy) { fire_rate = 15; }
+fire_rate = 15;
+if (speedy) { fire_rate = 10; }
 
 if ((global.input.check_held(input.SR) || mouse_check_button(mb_left)) && game_tick % fire_rate == 0)
 {
-	bullet(obj_bullet_player, fire_angle, 4);
+	bullet(obj_bullet_player, fire_angle, 8);
 	if (tripleshot)
 	{
 		var off = 15;

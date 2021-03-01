@@ -21,3 +21,16 @@ function bullet_target(_spd)
 	bullet(obj_bullet_enemy, angle + irandom_off(5), _spd);
 }
 #endregion
+#region bullet_spiral(speed);
+/// @function bullet_spiral(speed);
+/// @param spd
+function bullet_spiral(_spd)
+{
+	var angle = fire_angle;
+	bullet(obj_bullet_enemy, angle, _spd);
+	bullet(obj_bullet_enemy, angle + 180, _spd);
+	
+	fire_angle += 20;
+	fire_angle = fire_angle % 360;
+}
+#endregion
