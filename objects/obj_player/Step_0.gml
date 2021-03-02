@@ -50,6 +50,7 @@ else
 if (global.input.check_pressed(input.SL) && dash_cooldown == -1)
 {
 	dash_cooldown = second(0.35);
+	audio.play_sound(snd_dash, !global.mute_sound / 2);
 	
 	var dis = 64;
 	var xx = x + lengthdir_x(dis, var_direction);
@@ -112,6 +113,8 @@ if (speedy) { fire_rate = 10; }
 
 if ((global.input.check_held(input.SR) || mouse_check_button(mb_left)) && game_tick % fire_rate == 0)
 {
+	audio.play_sound(snd_player_shoot, !global.mute_sound / 10);
+	
 	bullet(obj_bullet_player, fire_angle, 8);
 	if (tripleshot)
 	{

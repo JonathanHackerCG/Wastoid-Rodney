@@ -1,6 +1,8 @@
 /// @description Performing explosion.
 event_inherited();
 
+audio.play_sound(snd_explosion, !global.mute_sound / 5);
+
 camera.flash_alpha = 1.00;
 part_fade(x, y, layer, sprite_index, 0, 10);
 

@@ -27,6 +27,7 @@ if (player.key)
 	{
 		instance_destroy(inst);
 		player.key = false;
+		audio.play_sound(snd_key_open, !global.mute_sound / 2);
 		with (obj_powerup_base)
 		{
 			if (powerup == obj_key && !has_powerup)
