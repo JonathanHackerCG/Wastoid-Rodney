@@ -4,6 +4,8 @@ event_inherited();
 global.endless_upgrades = false;
 paused = false;
 dash_cooldown = -1;
+dash_move_cooldown = -1;
+dashing = 0;
 
 hp = 5;
 hp_max = hp;
