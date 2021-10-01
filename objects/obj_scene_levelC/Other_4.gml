@@ -2,6 +2,7 @@
 event_inherited();
 
 player.fire_goto = 90;
+if (global.killed) { instance_create_layer(536, 304, layer, obj_sonny); exit; }
 
 if (global.story)
 {

@@ -3,6 +3,7 @@ event_inherited();
 
 player.fire_goto = 0;
 wb_sonnyA.sprite_index = noone;
+if (global.killed) { exit; }
 
 if (global.story)
 {

@@ -1,7 +1,8 @@
 /// @description Tutorial start cutscene.
 event_inherited();
 
-player.fire_goto = 0;
+player.fire_goto = 90;
+if (global.killed) { exit; }
 
 if (global.story)
 {

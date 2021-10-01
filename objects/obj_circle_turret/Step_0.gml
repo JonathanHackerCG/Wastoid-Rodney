@@ -1,8 +1,8 @@
-/// @description 
+/// @description Attacking.
 event_inherited();
 if (global.paused) { exit; }
 
-if (audio.off_beat == 0 && is_on_screen(128))
+if (game_tick % fire_rate == 0 && is_on_screen(128))
 {
-	bullet_ring(4, 1.75);
+	bullet_ring(4, fire_speed);
 }

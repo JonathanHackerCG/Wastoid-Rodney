@@ -4,8 +4,7 @@ event_inherited();
 global.endless_upgrades = false;
 paused = false;
 dash_cooldown = -1;
-dash_move_cooldown = -1;
-dashing = 0;
+iframes = 0;
 
 hp = 5;
 hp_max = hp;
@@ -20,7 +19,9 @@ var_direction = 0;
 
 fire_rate = 30;
 fire_angle = 0;
+fire_timer = 0;
 fire_goto = fire_angle;
+bullet_speed = 8;
 mx_previous = mouse_x;
 my_previous = mouse_y;
 

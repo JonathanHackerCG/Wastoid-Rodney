@@ -8,9 +8,9 @@ update();
 
 if (instance_exists(player))
 {
-	var dis = 64;
+	var dis = 48;
 	if (!global.smart_camera) { dis = 0; }
 	var xx = lengthdir_x(dis, player.fire_goto);
 	var yy = lengthdir_y(dis, player.fire_goto);
-	follow(player, 32, xx, yy);
+	follow(player, 12, xx, yy);
 }

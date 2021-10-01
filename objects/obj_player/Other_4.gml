@@ -1,6 +1,8 @@
 /// @description Teleport to start location.
 event_inherited();
 
+iframes = 0;
+sprite_index = spr_player;
 hp = hp_max;
 //Disabling powerups.
 tripleshot = false;

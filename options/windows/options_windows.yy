@@ -1,7 +1,7 @@
 {
   "option_windows_display_name": "Wastoid Rodney - GMC Jam 40",
   "option_windows_executable_name": "Wastoid-Rodney.exe",
-  "option_windows_version": "1.0.0.0",
+  "option_windows_version": "1.1.0.0",
   "option_windows_company_info": "Cloaked Games LLC",
   "option_windows_product_info": "Wastoid Rodney",
   "option_windows_copyright_info": "(c) 2021",

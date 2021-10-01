@@ -325,8 +325,11 @@ function DialogueQueue() constructor
 			case textbox_type.menu:
 			{
 				//Confirming answer to question.
-				if (_input_up && _answer_select > 0) { _answer_select --; audio.play_sound(snd_select, !global.mute_sound / 2); }
-				if (_input_down && _answer_select < _answer_num - 1) { _answer_select ++; audio.play_sound(snd_select, !global.mute_sound / 2); }
+				if (_answer_num > 0)
+				{
+					if (_input_up && _answer_select > 0) { _answer_select --; audio.play_sound(snd_select, !global.mute_sound / 2); }
+					if (_input_down && _answer_select < _answer_num - 1) { _answer_select ++; audio.play_sound(snd_select, !global.mute_sound / 2); }
+				}
 				if (_input_confirm)
 				{
 					audio.play_sound(snd_confirm, !global.mute_sound / 2);
@@ -771,12 +774,12 @@ function queue_options()
 	#region Graphics
 	con.here(20);
 	con.menu();
-	con.answer("Fullscreen", 0,
+	if (!GX) { con.answer("Fullscreen", 0,
 	function() { return global.fullscreen; },
 	function() {
 		global.fullscreen = !global.fullscreen;
 		camera.init_screen(256, 320, 180, 192, 4, global.fullscreen);
-	});
+	}); }
 	con.answer("Screenshake", 0,
 	function() { return global.screenshake; },
 	function() { global.screenshake = !global.screenshake; });

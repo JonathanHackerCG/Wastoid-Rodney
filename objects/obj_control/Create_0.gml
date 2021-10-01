@@ -1,6 +1,9 @@
 /// @description Variable initialization.
 event_inherited();
 
+//Platforms
+#macro GX os_type == os_operagx
+
 enum ev_user
 {
 	kill = 14,

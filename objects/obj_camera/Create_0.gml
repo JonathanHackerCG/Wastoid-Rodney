@@ -34,11 +34,6 @@ function init()
 	cam_id = camera_create_view(0, 0, 0, 0, 0, -1, -1, -1, -1, -1);
 	camera_set_view_pos(cam_id, xpos, ypos);
 	camera_set_view_size(cam_id, width, height);
-
-	view_camera[0] = cam_id;
-	view_visible[0] = true;
-	view_enabled[0] = true;
-	
 	application_surface_draw_enable(false);
 }
 #endregion
@@ -102,105 +97,137 @@ function follow(_inst, _factor, _xoff, _yoff)
 /// @param height_max
 /// @param scale_base
 /// @param fullscreen
-function init_screen(width_min, width_max, height_min, height_max, scale_base, fullscreen)
+/// @param [original]
+function init_screen(w_min, w_max, h_min, h_max, scale_base, fullscreen, original)
 {
+	if (GX)
+	{
+		init_screen_simple(320, 192, 1280, 768);
+		exit;
+	}
+	
+	if (is_undefined(original)) { original = false; }
 	#region Updating parameter values.
-	width_min		*= scale_base;
-	width_max		*= scale_base;
-	height_min	*= scale_base;
-	height_max	*= scale_base;
-
-	//Getting/calculating other display variables
-	var screen_w = display_get_width();
-	var screen_h = display_get_height();
+	w_min	*= scale_base;
+	h_min	*= scale_base;
+	w_max	*= scale_base;
+	h_max	*= scale_base;
+	var buffer_w = 64;
+	var buffer_h = 128;
 	#endregion
-
 	#region Calculating target width and height.
-	var width = clamp(width_max, width_min, screen_w);
-	var height = clamp(height_max, height_min, screen_h);
-	var scale_real = 1;
-	#endregion
-	#region Determining fullscreen scale factor.
+	var screen_w = display_get_width();	 //Screen width  (real).
+	var screen_h = display_get_height(); //Screen height (real).
 	if (fullscreen)
 	{
-		var area_max = 0;
-		var area;
-	
-		//Choosing viable scale factors from the base scale value
-		var scale_list = ds_list_create();
-		ds_list_add(scale_list, 2, 3, 4);
-		if (scale_base == 2)
-		{
-			ds_list_add(scale_list, 0.5);
-		}
-		else if (scale_base == 4)
-		{
-			ds_list_add(scale_list, 1.25, 1.5, 1.75);
-		}
-	
-		//Iterate for every combination of allowed sizes and scale factors
-		for (var w = width_min; w < width_max; w += 16) {
-		for (var h = height_min; h < height_max; h += 16) {
-		for (var i = 0; i < ds_list_size(scale_list); i++)
-		{
-			//Determine largest possible screen size and select width/height based on that.
-			var s = scale_list[| i];
-			if (w * s <= screen_w && h * s <= screen_h)
-			{
-				area = (w * s) * (h * s)
-				if (area > area_max)
-				{
-					width = w;
-					height = h;
-				
-					area_max = area;
-					scale_real = s;
-				}
-			}
-		} } }
-	
-		ds_list_destroy(scale_list); //Delete the scale factor list
+		var target_w = screen_w; //Target final width.
+		var target_h = screen_h; //Target final height.
 	}
-	global.screen_scale = scale_real;
+	else
+	{
+		target_w = screen_w - buffer_w; //Target final width.
+		target_h = screen_h - buffer_h; //Target final height.
+	}
 	#endregion
-	#region Fullscreen scaling.
+	#region Determining the scale factor.
+	var a, a_max = 0;
+	var scale_w = clamp(w_max, w_min, target_w);
+	var scale_h = clamp(h_max, h_min, target_h);
+	var scale_real = 1;
+	
+	#region Choosing viable scale factors from the base scale value
+	var scale_list = ds_list_create();
+	if (original) { ds_list_add(scale_list, 1); }
+	else
+	{
+		ds_list_add(scale_list, 1, 2, 3, 4);
+		if (scale_base == 2) { ds_list_add(scale_list, 0.5); }
+		else if (scale_base == 4)	{ ds_list_add(scale_list, 1.25, 1.5, 1.75);	}
+	}
+	#endregion
+	#region Calculate the largest possible scale factor based on target size.
+	var _size = ds_list_size(scale_list);
+	var s, w_min_scaled, w_max_scaled, h_min_scaled, h_max_scaled;
+	for (var i = 0; i < _size; i++)
+	{
+		s = scale_list[| i];
+		w_min_scaled = w_min * s;
+		h_min_scaled = h_min * s;
+		w_max_scaled = min(w_max * s, target_w);
+		h_max_scaled = min(h_max * s, target_h);
+		if (w_max_scaled < w_min_scaled || h_max_scaled < h_min_scaled) { continue; }
+		
+		a = w_max_scaled * h_max_scaled;
+		if (a > a_max)
+		{
+			a_max = a;
+			scale_real = s;
+			scale_w = floor(w_max_scaled / s);
+			scale_h = floor(h_max_scaled / s);
+		}
+	}
+	#endregion
+	ds_list_destroy(scale_list); //Delete the scale factor list
+	#endregion
+	#region Set window size/fullscreen enabled.
 	if (!fullscreen)
 	{
-		//Resize and position window in the center of the display
-		var offset_x = (screen_w / 2) - (width / 2);
-		var offset_y = (screen_h / 2) - (height / 2);
-		window_set_size(width, height);
-		window_set_position(offset_x, offset_y);
 		window_set_fullscreen(false);
+		window_set_size(scale_w * scale_real, scale_h * scale_real);
+		var offset_x = (screen_w - (scale_w * scale_real)) / 2;
+		var offset_y = (screen_h - (scale_h * scale_real)) / 2;
+		offx = 0;
+		offy = 0;
+		window_set_position(offset_x, offset_y);
 	}
 	else
 	{
 		window_set_fullscreen(true);
+		offx = (screen_w - (scale_w * scale_real)) / 2;
+		offy = (screen_h - (scale_h * scale_real)) / 2;
 	}
-	surface_resize(application_surface, width, height);
+	surface_resize(application_surface, scale_w * scale_real,  scale_h * scale_real);
 	#endregion
-	
 	#region Resize the camera.
-	camera.width = width / scale_base;
-	camera.height = height / scale_base;
-	camera.wcenter = camera.width / 2;
-	camera.hcenter = camera.height / 2;
-	camera_set_view_size(camera.cam_id, camera.width, camera.height);
+	width  = scale_w / scale_base;
+	height = scale_h / scale_base;
+	wcenter = width  / 2;
+	hcenter = height / 2;
+	camera_set_view_size(cam_id, width, height);
 	#endregion
 	#region Resize the GUI.
-	scale_base = 1;
-	display_set_gui_size(width / scale_base, height / scale_base);
-	display_set_gui_maximize(scale_real * scale_base, scale_real * scale_base, 0, 0);
-
-	camera.gui_width = width / scale_base;
-	camera.gui_height = height / scale_base;
+	display_set_gui_maximize(1, 1, 0, 0);
+	gui_width  = display_get_gui_width();
+	gui_height = display_get_gui_height();
+	
+	con.set_position((width / 2) - 80, height - 54 - 4);
 	#endregion
 	#region Set camera view values.
-	view_camera[0] = camera.cam_id;
+	view_camera[0] = cam_id;
 	view_visible[0] = true;
 	view_enabled[0] = true;
 	#endregion
 	update();
+}
+#endregion
+#region init_screen_simple();
+/// @function init_screen_simple();
+/// @param wcam
+/// @param hcam
+/// @param wport
+/// @param hport
+function init_screen_simple(_wcam, _hcam, _wport, _hport)
+{
+	width  = _wcam;
+	height = _hcam;
+	wcenter = _wcam / 2;
+	hcenter = _hcam / 2;
+	camera.cam_id = camera_create_view(0, 0, _wcam, _hcam);
+	view_enabled = true;
+	view_visible[0] = true;
+	view_camera[0] = camera.cam_id;
+	view_set_wport(0, _wport);
+	view_set_hport(0, _hport);
 }
 #endregion
 

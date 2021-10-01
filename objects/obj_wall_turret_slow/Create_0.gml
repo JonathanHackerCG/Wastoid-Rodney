@@ -2,4 +2,4 @@
 event_inherited();
 
 hp = 7;
-toggle = true;
+fire_rate = second(1.25);

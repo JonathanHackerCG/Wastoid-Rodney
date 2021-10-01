@@ -3,6 +3,7 @@ event_inherited();
 if (hp <= 0)
 {
 	audio.play_sound(snd_death, !global.mute_sound / 3);
+	global.killed = true;
 	room_restart();
 }
 else { audio.play_sound(snd_hit, !global.mute_sound / 5); }

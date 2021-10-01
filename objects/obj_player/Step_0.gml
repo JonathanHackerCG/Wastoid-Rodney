@@ -4,6 +4,7 @@ event_inherited();
 if (x <= 0 || y <= 0) { exit; }
 if (paused) { exit; }
 
+if (iframes > 0) { iframes --; }
 if (global.input.check_pressed(input.start))
 {
 	if (global.paused) { obj_control.resume(); }
@@ -26,7 +27,10 @@ spd_goto = point_distance(0, 0, axis_x, axis_y);
 spd_goto = clamp(spd_goto * spd_max, -spd_max, spd_max);
 spd = lerp(spd, spd_goto, accel);
 
-step_direction_solid(var_direction, spd);
+if (dash_cooldown <= second(0.04))
+{
+	step_direction_solid(var_direction, spd);
+}
 
 if (spd > 0) { sprite_index = spr_player_walk; }
 else { sprite_index = spr_player; }
@@ -46,15 +50,23 @@ else
 	}
 }
 #endregion
+#region Aim Inputs.
+var axis_x = global.input.axis_value(input.axis_rx);
+var axis_y = global.input.axis_value(input.axis_ry);
+var aim_direction = point_direction(0, 0, axis_x, axis_y);
+#endregion
 #region Dashing.
-if (global.input.check_pressed(input.SL) && dash_cooldown == -1)
+if ((global.input.check_pressed(input.SL) || global.input.check_pressed(input.L)) && dash_cooldown == -1)
 {
 	dash_cooldown = second(0.35);
 	audio.play_sound(snd_dash, !global.mute_sound / 2);
+	iframes += second(0.25);
 	
-	var dis = 64;
-	var xx = x + lengthdir_x(dis, var_direction);
-	var yy = y + lengthdir_y(dis, var_direction);
+	var dis = 72;
+	var dir = var_direction;
+	if (spd == 0) { dir = aim_direction; }
+	var xx = x + lengthdir_x(dis, dir);
+	var yy = y + lengthdir_y(dis, dir);
 	var count = 0;
 	repeat(8)
 	{
@@ -67,9 +79,7 @@ if (global.input.check_pressed(input.SL) && dash_cooldown == -1)
 if (dash_cooldown >= 0) { dash_cooldown --; }
 #endregion
 #region Aiming.
-var axis_x = global.input.axis_value(input.axis_rx);
-var axis_y = global.input.axis_value(input.axis_ry);
-var dir = point_direction(0, 0, axis_x, axis_y);
+var dir = aim_direction;
 var range = clamp(point_distance(0, 0, axis_x, axis_y) * var_range, 0, var_range);
 if (range > var_range / 3) { fire_goto = dir; }
 
@@ -111,16 +121,25 @@ fire_angle = alerp(fire_angle, fire_goto, aim_speed);
 fire_rate = 15;
 if (speedy) { fire_rate = 10; }
 
-if ((global.input.check_held(input.SR) || mouse_check_button(mb_left)) && game_tick % fire_rate == 0)
+if ((global.input.check_held(input.SR) || global.input.check_held(input.R) || mouse_check_button(mb_left)))
 {
-	audio.play_sound(snd_player_shoot, !global.mute_sound / 10);
-	
-	bullet(obj_bullet_player, fire_angle, 8);
-	if (tripleshot)
+	if (fire_timer % fire_rate == 0)
 	{
-		var off = 15;
-		bullet(obj_bullet_player, fire_angle + off, 3);
-		bullet(obj_bullet_player, fire_angle - off, 3);
+		audio.play_sound(snd_player_shoot, !global.mute_sound / 10);
+	
+		bullet(obj_bullet_player, fire_angle, bullet_speed);
+		if (tripleshot)
+		{
+			var off = 10;
+			bullet(obj_bullet_player, fire_angle + off, bullet_speed);
+			bullet(obj_bullet_player, fire_angle - off, bullet_speed);
+		}
 	}
+	fire_timer ++;
+}
+else if (fire_timer > 0)
+{
+	fire_timer ++;
+	if (fire_timer % fire_rate == 0) { fire_timer = 0; }
 }
 #endregion

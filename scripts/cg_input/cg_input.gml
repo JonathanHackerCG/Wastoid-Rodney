@@ -7,6 +7,8 @@ enum input
 	//It is recommended to remove any input IDs which are not being used.
 	
 	//Default user-defined buttons.
+	L,
+	R,
 	SL,			//Left Shoulder Button
 	SR,			//Right Shoulder Button
 	start,	//Start Button

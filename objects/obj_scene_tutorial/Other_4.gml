@@ -1,6 +1,9 @@
 /// @description Tutorial start cutscene.
 event_inherited();
 
+player.fire_goto = 0;
+if (global.killed) { exit; }
+
 if (global.story)
 {
 	player.paused = true;

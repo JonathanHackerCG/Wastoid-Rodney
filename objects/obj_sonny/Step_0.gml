@@ -3,7 +3,7 @@ event_inherited();
 
 if (global.paused) { exit; }
 
-if (audio.off_beat == 0)
+if (game_tick % fire_rate == 0)
 {
 	bullet_ring(8, 2);
 }
