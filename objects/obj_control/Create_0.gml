@@ -2,7 +2,7 @@
 event_inherited();
 
 //Platforms
-#macro GX os_type == os_operagx
+#macro GX (os_type == os_operagx)
 
 enum ev_user
 {
@@ -80,7 +80,5 @@ function resume()
 	player.paused = false;
 	global.paused = false;
 	audio_resume_all();
-	con.reset();
 	con.clear();
-	con.set_active(false);
 }

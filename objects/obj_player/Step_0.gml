@@ -56,15 +56,15 @@ var axis_y = global.input.axis_value(input.axis_ry);
 var aim_direction = point_direction(0, 0, axis_x, axis_y);
 #endregion
 #region Dashing.
-if ((global.input.check_pressed(input.SL) || global.input.check_pressed(input.L)) && dash_cooldown == -1)
+if ((global.input.check_pressed(input.SL) || global.input.check_pressed(input.L) || mouse_check_button_pressed(mb_right)) && dash_cooldown == -1)
 {
 	dash_cooldown = second(0.35);
 	audio.play_sound(snd_dash, !global.mute_sound / 2);
 	iframes += second(0.25);
 	
 	var dis = 72;
-	var dir = var_direction;
-	if (spd == 0) { dir = aim_direction; }
+	var dir = fire_angle;
+	
 	var xx = x + lengthdir_x(dis, dir);
 	var yy = y + lengthdir_y(dis, dir);
 	var count = 0;
@@ -83,11 +83,14 @@ var dir = aim_direction;
 var range = clamp(point_distance(0, 0, axis_x, axis_y) * var_range, 0, var_range);
 if (range > var_range / 3) { fire_goto = dir; }
 
-var mx = display_mouse_get_x();
-var my = display_mouse_get_y();
+//PC Method works slightly better. This will suffice however.
+//var mx = display_mouse_get_x();
+//var my = display_mouse_get_y();
+var mx = mouse_x - camera.xpos;
+var my = mouse_y - camera.ypos;
 if (axis_x == 0 && axis_y == 0)
 {
-	if (point_distance(mx, my, mx_previous, my_previous) >= 0.25)
+	if (point_distance(mx, my, mx_previous, my_previous) >= 2)
 	{
 		dir = point_direction(x, y, mouse_x, mouse_y);
 		fire_goto = dir;
@@ -111,7 +114,7 @@ if (aim_enabled)
 				player.fire_goto = enemy_dir;
 				dis_min = enemy_dis;
 			} else { targeted = false; }
-		} else { target = false; }
+		} else { targeted = false; }
 	}
 }
 

@@ -1,6 +1,6 @@
 {
   "option_operagx_version": "1.0.0.0",
-  "option_operagx_game_name": "Watoid Rodney",
+  "option_operagx_game_name": "Wastoid Rodney",
   "option_operagx_splash_screen": "${base_options_dir}/operagx/splash.png",
   "option_operagx_interpolate_pixels": false,
   "option_operagx_scale": 0,

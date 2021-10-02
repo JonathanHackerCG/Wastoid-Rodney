@@ -1,1 +1,1 @@
-scribble_draw(x, y, "[fnt_pixelfont]" + textA + "\n" + textB);
+label.draw(x, y);

@@ -3,11 +3,10 @@
 global.smart_camera = true;
 
 #region Scribble and font initialization.
-scribble_init("", "fnt_pixelfont", false);
 global.fnt_pixelfont = font_add_sprite_ext(fnt_pixelfont, "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz.,?!'()<>^*+=-/%:;_$", 1, 4);
 global.fnt_smallfont = font_add_sprite_ext(fnt_smallfont, "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz.,()'?!-/$", 1, 3);
-scribble_add_spritefont("fnt_pixelfont", "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz.,?!'()<>^*+=-/%:;_$", 1, 4);
-scribble_add_spritefont("fnt_smallfont", "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz.,()'?!-/$", 1, 3);
+scribble_font_add_from_sprite("fnt_pixelfont", "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz.,?!'()<>^*+=-/%:;_$", 1, 4);
+scribble_font_add_from_sprite("fnt_smallfont", "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz.,()'?!-/$", 1, 3);
 #endregion
 
 #region init();

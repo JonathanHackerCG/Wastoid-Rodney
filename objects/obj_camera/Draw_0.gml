@@ -18,5 +18,5 @@ if (flash_alpha > 0.0 && global.flashing)
 }
 
 ///Drawing the DialogueQueue.
-con.set_position(xpos + (width / 2) - 80, ypos + height - 54 - 4);
+con.set_position((width / 2) - 80, height - 54 - 4);
 con.draw();

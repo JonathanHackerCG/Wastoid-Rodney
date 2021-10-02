@@ -10,7 +10,7 @@ con.answer("Story Mode", 1);
 con.answer("Level Select", 5);
 con.answer("Options", 2);
 con.answer("Controls", 3);
-con.answer("Exit Game", 4);
+if !(GX) { con.answer("Exit Game", 4); }
 
 con.here(1);
 con.function_execute(function() {	obj_control.start_level(rm_scene_intro); global.story = true; });
